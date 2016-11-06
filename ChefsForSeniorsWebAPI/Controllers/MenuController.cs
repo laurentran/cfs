@@ -12,6 +12,46 @@ namespace ChefsForSeniorsWebAPI.Controllers
 {
     public class MenuController : ApiController
     {
+        [SwaggerOperation("GetMenusByChefId")]
+        public IEnumerable<Menu> Get(int ID)
+        {
+            //TODO: Implement GetByID
+            return Get();
+        }
+
+        [SwaggerOperation("GetMenusByChefName")]
+        public IEnumerable<Menu> Get(string Name)
+        {
+            //TODO: Implement GetByName
+            return Get();
+        }
+
+        // POST api/values
+        [SwaggerOperation("CreateMenu")]
+        [SwaggerResponse(HttpStatusCode.Created)]
+        public void Post([FromBody]string value)
+        {
+            //TODO: Implement Post
+        }
+
+        // DELETE api/values/5
+        [SwaggerOperation("DeleteMenuByID")]
+        [SwaggerResponse(HttpStatusCode.OK)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        public void Delete(int id)
+        {
+            //TODO: Implement Delete
+        }
+
+        // PUT api/values/5
+        [SwaggerOperation("MarkDone")]
+        [SwaggerResponse(HttpStatusCode.OK)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        public void Put(int id, [FromBody]string value)
+        {
+            //TODO: Implement Update
+        }
+
         [SwaggerOperation("GetAll")]
         public IEnumerable<Menu> Get()
         {

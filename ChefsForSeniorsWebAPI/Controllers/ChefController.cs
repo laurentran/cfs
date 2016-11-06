@@ -9,5 +9,6 @@ namespace ChefsForSeniorsWebAPI.Controllers
 {
     public class ChefController : ApiController
     {
+
     }
 }
