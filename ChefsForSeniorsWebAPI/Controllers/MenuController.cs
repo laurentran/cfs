@@ -85,32 +85,31 @@ namespace ChefsForSeniorsWebAPI.Controllers
                     }
                 },
 
-                //TODO: Change values to create second menu
                 new Menu()
                 {
                     ID = 1,
                     CreatedDate = DateTime.UtcNow,
                     ScheduledDate = DateTime.UtcNow + TimeSpan.FromDays(7),
-                    Chef = new Chef(1, "Jerry"),
-                    Client =  new Client(1, "Amy"),
+                    Chef = new Chef(1, "Lauren"),
+                    Client =  new Client(1, "Bob"),
                     MealItems = new List<MealItem>()
                     {
                         new MealItem()
                         {
                             ID = 1,
-                            Name = "Beef Tenderloin with Portobello Mushrooms",
+                            Name = "Salmon with Cucumber-Yogurt Sauce",
                             Type = Common.MealItemType.Entree,
                             Components = new List<RecipeComponent>()
                             {
-                                new RecipeComponent(new Ingredient(1, "garlic", new Category(1, "produce")), new Unit(1, "tsp"), 1),
-                                new RecipeComponent(new Ingredient(2, "portbbello mushroom", new Category(1, "produce")), new Unit(1, "medium"), 1),
-                                new RecipeComponent(new Ingredient(3, "beef tenderloin", new Category(1, "butcher")), new Unit(1, "6 oz"), 2),
-                                new RecipeComponent(new Ingredient(4, "individual red wine", new Category(1, "dry goods")), new Unit(1, "small bottle"), 1)
+                                new RecipeComponent(new Ingredient(1, "salmon fillet", new Category(1, "butcher")), new Unit(1, "6 oz"), 2),
+                                new RecipeComponent(new Ingredient(2, "cucumber", new Category(1, "produce")), new Unit(1, "small"), 0.5f),
+                                new RecipeComponent(new Ingredient(3, "lemon", new Category(1, "produce")), new Unit(1, "medium"), 1),
+                                new RecipeComponent(new Ingredient(4, "greek yogurt", new Category(1, "dairy")), new Unit(1, "oz"), 5)
                             }
                         },
-                        new MealItem("Salmon with Cucumber-Yogurt Sauce"),
-                        new MealItem("Sauteed Yellow Squash"),
-                        new MealItem("Quinoa") { Type = Common.MealItemType.Side }
+                        new MealItem("Sauteed Zucchini") { Type = Common.MealItemType.Side },
+                        new MealItem("Shrimp & Snow Pea Stirfry"),
+                        new MealItem("Ahi Tuna Steak with Mango Salsa")
                     }
                 }
             };
