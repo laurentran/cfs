@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="ChefsForSeniors.Data.DTO.Models.Category">
+    <Position X="16.75" Y="2.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChefsForSeniors.Data.DTO.Models.Chef">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Chef.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChefsForSeniors.Data.DTO.Models.Client">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChefsForSeniors.Data.DTO.Models.GroceryItem">
+    <Position X="12.75" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\GroceryItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChefsForSeniors.Data.DTO.Models.GroceryList">
+    <Position X="8.75" Y="0.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\GroceryList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChefsForSeniors.Data.DTO.Models.Ingredient">
+    <Position X="13.5" Y="2.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Models\Ingredient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChefsForSeniors.Data.DTO.Models.MealItem">
+    <Position X="7.25" Y="2.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgIAAAAAAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\MealItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChefsForSeniors.Data.DTO.Models.Menu">
+    <Position X="5" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAiAAAAAAAAAAAAAASAAAAAgAAAAAAAAQ=</HashCode>
+      <FileName>Models\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChefsForSeniors.Data.DTO.Models.Principal" Collapsed="true">
+    <Position X="1.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Principal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChefsForSeniors.Data.DTO.Models.RecipeComponent">
+    <Position X="10.75" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\RecipeComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChefsForSeniors.Data.DTO.Models.Unit">
+    <Position X="13.5" Y="5.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Unit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9.75" />
+</ClassDiagram>
