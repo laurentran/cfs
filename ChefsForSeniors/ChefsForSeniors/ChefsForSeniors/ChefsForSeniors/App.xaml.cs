@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using ChefsForSeniors.Views;
 using ChefsForSeniors.ViewModels;
+using Microsoft.Practices.Unity;
 
 namespace ChefsForSeniors
 {

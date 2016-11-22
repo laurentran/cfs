@@ -35,8 +35,57 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\..\ChefsForSeniors.Common\Common.cs">
+      <Link>Models\DTO\Common.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\ChefsForSeniors.Data.DTO\Models\Category.cs">
+      <Link>Models\DTO\Category.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\ChefsForSeniors.Data.DTO\Models\Chef.cs">
+      <Link>Models\DTO\Chef.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\ChefsForSeniors.Data.DTO\Models\Client.cs">
+      <Link>Models\DTO\Client.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\ChefsForSeniors.Data.DTO\Models\GroceryItem.cs">
+      <Link>Models\DTO\GroceryItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\ChefsForSeniors.Data.DTO\Models\GroceryList.cs">
+      <Link>Models\DTO\GroceryList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\ChefsForSeniors.Data.DTO\Models\Ingredient.cs">
+      <Link>Models\DTO\Ingredient.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\ChefsForSeniors.Data.DTO\Models\MealItem.cs">
+      <Link>Models\DTO\MealItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\ChefsForSeniors.Data.DTO\Models\Menu.cs">
+      <Link>Models\DTO\Menu.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\ChefsForSeniors.Data.DTO\Models\Principal.cs">
+      <Link>Models\DTO\Principal.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\ChefsForSeniors.Data.DTO\Models\RecipeComponent.cs">
+      <Link>Models\DTO\RecipeComponent.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\ChefsForSeniors.Data.DTO\Models\Unit.cs">
+      <Link>Models\DTO\Unit.cs</Link>
+    </Compile>
+    <Compile Include="Models\Ingredient.cs" />
+    <Compile Include="Models\IngredientCategory.cs" />
+    <Compile Include="Models\IngredientUnit.cs" />
+    <Compile Include="Models\Meal.cs" />
+    <Compile Include="Models\MealType.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Chef.cs" />
+    <Compile Include="Models\RecipeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ISqlLite.cs" />
+    <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Services\DataService\IDataService.cs" />
+    <Compile Include="Services\DataService\DataService.cs" />
+    <Compile Include="Services\DataService\FakeDataService.cs" />
+    <Compile Include="Services\ISqliteService.cs" />
+    <Compile Include="Services\RestService.cs" />
     <Compile Include="ViewModels\ClientListPageViewModel.cs" />
     <Compile Include="ViewModels\IngredientPageViewModel.cs" />
     <Compile Include="ViewModels\ItemsNotPurchasedPageViewModel.cs" />
@@ -101,6 +150,7 @@
     <Compile Include="Views\WeekListPage.xaml.cs">
       <DependentUpon>WeekListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Week.cs" />
     <!--<Compile Include="ViewModels\MainPageViewModel.cs" />-->
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +181,10 @@
       <HintPath>..\..\packages\Unity.4.0.1\lib\portable-net45+wp80+win8+wpa81+MonoAndroid10+MonoTouch10\Microsoft.Practices.Unity.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Prism.Core.6.2.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Prism.dll</HintPath>
       <Private>True</Private>
@@ -142,6 +196,21 @@
     <Reference Include="Prism.Unity.Forms, Version=6.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Prism.Unity.Forms.6.2.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Prism.Unity.Forms.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\sqlite-net-pcl.1.2.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a84b7dcfb1391f7f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SQLitePCLRaw.bundle_green.1.0.1\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SQLitePCLRaw.core.1.0.1\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Windows.Foundation.UniversalApiContract">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\References\Windows.Foundation.UniversalApiContract\3.0.0.0\Windows.Foundation.UniversalApiContract.winmd</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.1.114\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
@@ -157,6 +226,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Models\ModelDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

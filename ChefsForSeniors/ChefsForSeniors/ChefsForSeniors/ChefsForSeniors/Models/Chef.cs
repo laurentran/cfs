@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChefsForSeniors.Services
+namespace ChefsForSeniors.Models
 {
-    public interface ISqlLite
+    public class Chef
     {
+        public string Name { get; set; }
     }
 }
