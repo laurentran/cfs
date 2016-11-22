@@ -8,5 +8,10 @@ namespace ChefsForSeniors.Views
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            var data = this.BindingContext as ViewModels.ShoppingPageViewModel;
+        }
     }
 }

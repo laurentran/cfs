@@ -10,6 +10,9 @@ namespace ChefsForSeniors.Models
         public int Id { get; set; }
         public MealType Type { get; set; }
         public DateTime Date { get; set; }
-        public IEnumerable<Recipe> Items { get; set; }
+        public IEnumerable<Recipe> Recipes { get; set; }
+
+        public string Text => Date.ToString("d");
+        public string Detail => this.GetType().ToString();
     }
 }

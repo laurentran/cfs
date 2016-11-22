@@ -11,16 +11,16 @@ namespace ChefsForSeniors.ViewModels
     {
 		readonly INavigationService _navigationService;
 
-		public DelegateCommand<string> NavigateCommand => new DelegateCommand<string>(Navigate);
-
         public MealPageViewModel(INavigationService navigationService)
         {
 			_navigationService = navigationService;
         }
 
-		async void Navigate(string uri)
-		{
-			await _navigationService.NavigateAsync(uri);
-		}
+        DelegateCommand<string> _navigateCommand;
+        public DelegateCommand<string> NavigateCommand => _navigateCommand ?? (_navigateCommand = new DelegateCommand<string>(
+        async (uri) =>
+        {
+            await _navigationService.NavigateAsync(uri);
+        }));
     }
 }

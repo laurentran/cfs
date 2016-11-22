@@ -18,6 +18,8 @@ namespace ChefsForSeniors
 
         protected override void RegisterTypes()
         {
+            Container.RegisterType<Services.IDataService, Services.FakeDataService>();
+
             Container.RegisterTypeForNavigation<NavigationPage>();
             Container.RegisterTypeForNavigation<LoginPage, LoginPageViewModel>();
             Container.RegisterTypeForNavigation<ClientListPage, ClientListPageViewModel>();

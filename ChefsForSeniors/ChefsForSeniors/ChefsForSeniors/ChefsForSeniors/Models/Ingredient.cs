@@ -12,5 +12,8 @@ namespace ChefsForSeniors.Models
         public IngredientUnit Unit { get; set; }
         public string Quantity { get; set; }
         public IngredientCategory Category { get; set; }
+
+        public string Text => Name;
+        public string Detail => this.GetType().ToString();
     }
 }

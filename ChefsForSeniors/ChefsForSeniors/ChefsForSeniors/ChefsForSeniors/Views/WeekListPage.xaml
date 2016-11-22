@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage x:Class="ChefsForSeniors.Views.WeekListPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ChefsForSeniors.Views;assembly=ChefsForSeniors"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             prism:ViewModelLocator.AutowireViewModel="True"
-			 xmlns:local="clr-namespace:ChefsForSeniors.Views;assembly=ChefsForSeniors"
-             x:Class="ChefsForSeniors.Views.WeekListPage"
-             Title="WeekListPage">
+             Title="WeekListPage"
+             prism:ViewModelLocator.AutowireViewModel="True">
 
+    <Grid>
 
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-	  <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Label Text="WeekListPage" VerticalOptions="Center" HorizontalOptions="Center" />
-		    <Button Text="MealListPage" Command="{Binding NavigateCommand}" CommandParameter="MealListPage" />
-    <Button Text="NewWeekPage" Command="{Binding NavigateCommand}" CommandParameter="NewWeekPage" />
-	  </StackLayout>
-    
+        <ListView Grid.Row="0"
+                  ItemSelected="ListView_ItemSelected"
+                  ItemsSource="{Binding Path=Items}"
+                  SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Detail="{Binding Path=Detail}" Text="{Binding Path=Text}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Grid.Row="1"
+                Command="{Binding NavigateCommand}"
+                CommandParameter="NewWeekPage"
+                Text="+ Week" />
+
+    </Grid>
 
 </ContentPage>
 

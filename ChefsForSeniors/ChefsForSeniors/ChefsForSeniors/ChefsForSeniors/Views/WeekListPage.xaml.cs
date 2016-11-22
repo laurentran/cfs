@@ -8,5 +8,10 @@ namespace ChefsForSeniors.Views
         {
             InitializeComponent();
         }
+
+        public void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            (this.BindingContext as ViewModels.WeekListPageViewModel).SelectedItem = e.SelectedItem as Models.Week;
+        }
     }
 }

@@ -85,7 +85,8 @@
     <Compile Include="Services\DataService\DataService.cs" />
     <Compile Include="Services\DataService\FakeDataService.cs" />
     <Compile Include="Services\ISqliteService.cs" />
-    <Compile Include="Services\RestService.cs" />
+    <Compile Include="Services\IRestService.cs" />
+    <Compile Include="Utilities\Extensions.cs" />
     <Compile Include="ViewModels\ClientListPageViewModel.cs" />
     <Compile Include="ViewModels\IngredientPageViewModel.cs" />
     <Compile Include="ViewModels\ItemsNotPurchasedPageViewModel.cs" />

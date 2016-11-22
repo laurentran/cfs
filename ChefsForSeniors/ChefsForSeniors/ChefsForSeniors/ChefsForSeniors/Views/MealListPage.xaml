@@ -1,21 +1,49 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage x:Class="ChefsForSeniors.Views.MealListPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ChefsForSeniors.Views;assembly=ChefsForSeniors"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             prism:ViewModelLocator.AutowireViewModel="True"
-			 xmlns:local="clr-namespace:ChefsForSeniors.Views;assembly=ChefsForSeniors"
-             x:Class="ChefsForSeniors.Views.MealListPage"
-             Title="MealListPage">
+             Title="MealListPage"
+             prism:ViewModelLocator.AutowireViewModel="True">
 
+    <Grid>
 
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-	  <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Label Text="MealListPage" VerticalOptions="Center" HorizontalOptions="Center" />
-		    <Button Text="MealPage" Command="{Binding NavigateCommand}" CommandParameter="MealPage" />
-    <Button Text="ShoppingPage" Command="{Binding NavigateCommand}" CommandParameter="ShoppingPage" />
-    <Button Text="NewMealPage" Command="{Binding NavigateCommand}" CommandParameter="NewMealPage" />
-	  </StackLayout>
-    
+        <ListView Grid.Row="0"
+                  GroupDisplayBinding="{Binding Text}"
+                  IsGroupingEnabled="true"
+                  ItemSelected="ListView_ItemSelected"
+                  ItemsSource="{Binding Path=Items}"
+                  SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Detail="{Binding Path=Detail}" Text="{Binding Path=Text}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <TextCell Detail="{Binding Path=Detail}" Text="{Binding Path=Text}" />
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+        </ListView>
+
+        <Button Grid.Row="1"
+                Command="{Binding NavigateToShoppingCommand}"
+                CommandParameter="ShoppingPage"
+                Text="Shopping List" />
+
+        <Button Grid.Row="2"
+                Command="{Binding NavigateCommand}"
+                CommandParameter="NewMealPage"
+                Text="+ Meal" />
+
+    </Grid>
 
 </ContentPage>
 
