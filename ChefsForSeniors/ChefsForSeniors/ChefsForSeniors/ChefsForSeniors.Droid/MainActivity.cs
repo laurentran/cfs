@@ -1,15 +1,9 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
 using ChefsForSeniors.Services;
-using ChefsForSeniors.Droid.Services;
 
 namespace ChefsForSeniors.Droid
 {
@@ -32,7 +26,9 @@ namespace ChefsForSeniors.Droid
     {
         public void RegisterTypes(IUnityContainer container)
         {
-            container.RegisterType<ISqlLite, SqlLiteService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ISqliteService, Services.SqliteService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IHockeyAppService, Services.HockeyAppService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IRestService, Services.RestService>(new ContainerControlledLifetimeManager());
         }
     }
 }

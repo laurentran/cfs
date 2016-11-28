@@ -71,6 +71,7 @@
     <Compile Include="..\..\..\..\ChefsForSeniors.Data.DTO\Models\Unit.cs">
       <Link>Models\DTO\Unit.cs</Link>
     </Compile>
+    <Compile Include="Controls\ListViewEx.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\IngredientCategory.cs" />
     <Compile Include="Models\IngredientUnit.cs" />
@@ -81,48 +82,48 @@
     <Compile Include="Models\RecipeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Services\Constants.cs" />
     <Compile Include="Services\DataService\IDataService.cs" />
     <Compile Include="Services\DataService\DataService.cs" />
     <Compile Include="Services\DataService\FakeDataService.cs" />
+    <Compile Include="Services\IHockeyAppService.cs" />
     <Compile Include="Services\ISqliteService.cs" />
     <Compile Include="Services\IRestService.cs" />
     <Compile Include="Utilities\Extensions.cs" />
-    <Compile Include="ViewModels\ClientListPageViewModel.cs" />
+    <Compile Include="ViewModels\ListClientsPageViewModel.cs" />
     <Compile Include="ViewModels\IngredientPageViewModel.cs" />
-    <Compile Include="ViewModels\ItemsNotPurchasedPageViewModel.cs" />
-    <Compile Include="ViewModels\ItemsPurchasedPageViewModel.cs" />
-    <Compile Include="ViewModels\LoginPageViewModel.cs" />
-    <Compile Include="ViewModels\MealListPageViewModel.cs" />
-    <Compile Include="ViewModels\MealPageViewModel.cs" />
+    <Compile Include="ViewModels\ListChefsPageViewModel.cs" />
+    <Compile Include="ViewModels\ListMealsPageViewModel.cs" />
+    <Compile Include="ViewModels\ListRecipesPageViewModel.cs" />
     <Compile Include="ViewModels\NewChefPageViewModel.cs" />
     <Compile Include="ViewModels\NewClientPageViewModel.cs" />
     <Compile Include="ViewModels\NewIngredientPageViewModel.cs" />
     <Compile Include="ViewModels\NewMealPageViewModel.cs" />
     <Compile Include="ViewModels\NewRecipePageViewModel.cs" />
     <Compile Include="ViewModels\NewWeekPageViewModel.cs" />
-    <Compile Include="ViewModels\RecipePageViewModel.cs" />
+    <Compile Include="ViewModels\ListIngredientsPageViewModel.cs" />
     <Compile Include="ViewModels\ShoppingPageViewModel.cs" />
-    <Compile Include="ViewModels\WeekListPageViewModel.cs" />
-    <Compile Include="Views\ClientListPage.xaml.cs">
-      <DependentUpon>ClientListPage.xaml</DependentUpon>
+    <Compile Include="ViewModels\ListWeeksPageViewModel.cs" />
+    <Compile Include="Views\ListClientsPage.xaml.cs">
+      <DependentUpon>ListClientsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\IngredientPage.xaml.cs">
       <DependentUpon>IngredientPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ItemsNotPurchasedPage.xaml.cs">
-      <DependentUpon>ItemsNotPurchasedPage.xaml</DependentUpon>
+    <Compile Include="Views\ShoppingPendingItemsTab.xaml.cs">
+      <DependentUpon>ShoppingPendingItemsTab.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ItemsPurchasedPage.xaml.cs">
-      <DependentUpon>ItemsPurchasedPage.xaml</DependentUpon>
+    <Compile Include="Views\ShoppingPurchasedItemsTab.xaml.cs">
+      <DependentUpon>ShoppingPurchasedItemsTab.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
+    <Compile Include="Views\ListChefsPage.xaml.cs">
+      <DependentUpon>ListChefsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MealListPage.xaml.cs">
-      <DependentUpon>MealListPage.xaml</DependentUpon>
+    <Compile Include="Views\ListMealsPage.xaml.cs">
+      <DependentUpon>ListMealsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MealPage.xaml.cs">
-      <DependentUpon>MealPage.xaml</DependentUpon>
+    <Compile Include="Views\ListRecipesPage.xaml.cs">
+      <DependentUpon>ListRecipesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NewChefPage.xaml.cs">
       <DependentUpon>NewChefPage.xaml</DependentUpon>
@@ -142,14 +143,14 @@
     <Compile Include="Views\NewWeekPage.xaml.cs">
       <DependentUpon>NewWeekPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RecipePage.xaml.cs">
-      <DependentUpon>RecipePage.xaml</DependentUpon>
+    <Compile Include="Views\ListIngredientsPage.xaml.cs">
+      <DependentUpon>ListIngredientsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShoppingPage.xaml.cs">
       <DependentUpon>ShoppingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WeekListPage.xaml.cs">
-      <DependentUpon>WeekListPage.xaml</DependentUpon>
+    <Compile Include="Views\ListWeeksPage.xaml.cs">
+      <DependentUpon>ListWeeksPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Week.cs" />
     <!--<Compile Include="ViewModels\MainPageViewModel.cs" />-->
@@ -174,6 +175,10 @@
   </ItemGroup>-->
   <ItemGroup />
   <ItemGroup>
+    <Reference Include="FreshEssentials, Version=1.0.6122.21141, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FreshEssentials.2.1.2\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FreshEssentials.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
@@ -214,15 +219,15 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\References\Windows.Foundation.UniversalApiContract\3.0.0.0\Windows.Foundation.UniversalApiContract.winmd</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.2.3.1.114\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.168\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.2.3.1.114\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.168\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.2.3.1.114\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.168\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -231,13 +236,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\LoginPage.xaml">
+    <EmbeddedResource Include="Views\ListChefsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\ClientListPage.xaml">
+    <EmbeddedResource Include="Views\ListClientsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -249,25 +254,25 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\WeekListPage.xaml">
+    <EmbeddedResource Include="Views\ListWeeksPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\MealListPage.xaml">
+    <EmbeddedResource Include="Views\ListMealsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\MealPage.xaml">
+    <EmbeddedResource Include="Views\ListRecipesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\RecipePage.xaml">
+    <EmbeddedResource Include="Views\ListIngredientsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -315,24 +320,24 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\ItemsNotPurchasedPage.xaml">
+    <EmbeddedResource Include="Views\ShoppingPendingItemsTab.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\ItemsPurchasedPage.xaml">
+    <EmbeddedResource Include="Views\ShoppingPurchasedItemsTab.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\..\packages\Xamarin.Forms.2.3.1.114\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.1.114\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Import Project="..\..\packages\Xamarin.Forms.2.3.3.168\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.168\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.2.3.1.114\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.2.3.1.114\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.2.3.3.168\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.2.3.3.168\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets'))" />
   </Target>
   <!--<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />-->
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

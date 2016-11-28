@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="ChefsForSeniors.Views.ListMealsPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fe="clr-namespace:FreshEssentials;assembly=FreshEssentials"
+             xmlns:local="clr-namespace:ChefsForSeniors.Views;assembly=ChefsForSeniors"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             Title="{Binding Path=Title}"
+             prism:ViewModelLocator.AutowireViewModel="True">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0">
+            <Label Text="Week date" />
+            <DatePicker Date="{Binding Week.Date, Mode=TwoWay}" />
+            <Button Command="{Binding SaveCommand}" Text="Save week" />
+            <Button Command="{Binding DeleteCommand}" Text="Delete week" />
+        </StackLayout>
+
+        <c:ListViewEx xmlns:c="ChefsForSeniors.Controls"
+                      Grid.Row="1"
+                      fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}"
+                      GroupDisplayBinding="{Binding Text}"
+                      Header="{Binding Title}"
+                      IsGroupingEnabled="true"
+                      ItemsSource="{Binding Path=Items}"
+                      SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Detail="{Binding Path=Detail}" Text="{Binding Path=Text}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <TextCell Detail="{Binding Path=Detail}" Text="{Binding Path=Text}" />
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+        </c:ListViewEx>
+
+        <Button Grid.Row="2"
+                Command="{Binding NavigateToShoppingCommand}"
+                CommandParameter="ShoppingPage"
+                Text="Shopping List" />
+
+        <Button Grid.Row="3"
+                Command="{Binding NewCommand}"
+                Text="+ Meal" />
+
+    </Grid>
+
+</ContentPage>
+

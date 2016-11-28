@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage x:Class="ChefsForSeniors.Views.IngredientPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ChefsForSeniors.Views;assembly=ChefsForSeniors"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             prism:ViewModelLocator.AutowireViewModel="True"
-			 xmlns:local="clr-namespace:ChefsForSeniors.Views;assembly=ChefsForSeniors"
-             x:Class="ChefsForSeniors.Views.IngredientPage"
-             Title="IngredientPage">
+             Title="{Binding Path=Title}"
+             prism:ViewModelLocator.AutowireViewModel="True">
 
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label HorizontalOptions="Center"
+               Text="IngredientPage"
+               VerticalOptions="Center" />
+    </StackLayout>
 
-
-	  <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Label Text="IngredientPage" VerticalOptions="Center" HorizontalOptions="Center" />
-			  </StackLayout>
-    
 
 </ContentPage>
 

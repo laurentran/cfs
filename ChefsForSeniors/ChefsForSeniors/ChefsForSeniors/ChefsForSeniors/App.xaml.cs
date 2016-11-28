@@ -13,7 +13,7 @@ namespace ChefsForSeniors
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync("NavigationPage/LoginPage");
+            NavigationService.NavigateAsync("NavigationPage/ListChefsPage");
         }
 
         protected override void RegisterTypes()
@@ -21,13 +21,13 @@ namespace ChefsForSeniors
             Container.RegisterType<Services.IDataService, Services.FakeDataService>();
 
             Container.RegisterTypeForNavigation<NavigationPage>();
-            Container.RegisterTypeForNavigation<LoginPage, LoginPageViewModel>();
-            Container.RegisterTypeForNavigation<ClientListPage, ClientListPageViewModel>();
+            Container.RegisterTypeForNavigation<ListChefsPage, ListChefsPageViewModel>();
+            Container.RegisterTypeForNavigation<ListClientsPage, ListClientsPageViewModel>();
             Container.RegisterTypeForNavigation<NewChefPage, NewChefPageViewModel>();
-            Container.RegisterTypeForNavigation<WeekListPage, WeekListPageViewModel>();
-            Container.RegisterTypeForNavigation<MealListPage, MealListPageViewModel>();
-            Container.RegisterTypeForNavigation<MealPage, MealPageViewModel>();
-            Container.RegisterTypeForNavigation<RecipePage, RecipePageViewModel>();
+            Container.RegisterTypeForNavigation<ListWeeksPage, ListWeeksPageViewModel>();
+            Container.RegisterTypeForNavigation<ListMealsPage, ListMealsPageViewModel>();
+            Container.RegisterTypeForNavigation<ListRecipesPage, ListRecipesPageViewModel>();
+            Container.RegisterTypeForNavigation<ListIngredientsPage, ListIngredientsPageViewModel>();
             Container.RegisterTypeForNavigation<IngredientPage, IngredientPageViewModel>();
             Container.RegisterTypeForNavigation<NewClientPage, NewClientPageViewModel>();
             Container.RegisterTypeForNavigation<NewWeekPage, NewWeekPageViewModel>();
@@ -35,8 +35,6 @@ namespace ChefsForSeniors
             Container.RegisterTypeForNavigation<NewRecipePage, NewRecipePageViewModel>();
             Container.RegisterTypeForNavigation<NewIngredientPage, NewIngredientPageViewModel>();
             Container.RegisterTypeForNavigation<ShoppingPage, ShoppingPageViewModel>();
-            Container.RegisterTypeForNavigation<ItemsNotPurchasedPage, ItemsNotPurchasedPageViewModel>();
-            Container.RegisterTypeForNavigation<ItemsPurchasedPage, ItemsPurchasedPageViewModel>();
         }
     }
 }

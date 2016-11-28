@@ -3,34 +3,75 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using ChefsForSeniors.Models;
 
 namespace ChefsForSeniors.Services
 {
     public class FakeDataService : IDataService
     {
-        public FakeDataService()
+        public IEntityDAL<Chef> Chef { get; } = new ChefLogic();
+        public class ChefLogic : IEntityDAL<Chef>
         {
-            // empty
+            public Task DeleteAsync(int id) { return null; }
+            public async Task<IEnumerable<Chef>> GetManyAsync(int? fk = default(int?)) => FakeDataService.Chefs();
+            public async Task<Chef> GetOneAsync(int id) => FakeDataService.Chefs().FirstOrDefault(x => x.Id == id);
+            public Task<Chef> InsertAsync(Chef item) { return null; }
+            public Task<Chef> SaveAsync(Chef item) { return null; }
         }
 
-        public async Task<IEnumerable<Models.Chef>> GetChefsAsync() => Chefs();
-        public async Task<Models.Chef> GetChefAsync(int id) => Chefs().FirstOrDefault(x => x.Id == id);
-        public async Task<bool> LoginAsync(Models.Chef chef, string password) { return true; }
-        public async Task<IEnumerable<Models.Client>> GetClientsAsync(int chefId) => Clients();
-        public async Task<IEnumerable<Models.Week>> GetWeeksAsync(int clientId) => Weeks();
-        public async Task<IEnumerable<Models.Meal>> GetMealsAsync(int clientId, int weekId) => Meals();
-        public async Task<Models.Meal> GetMealAsync(int mealId) => Meals().FirstOrDefault(x => x.Id == mealId);
-        public async Task<Models.Recipe> GetRecipe(int recipeId) => Recipes().FirstOrDefault(x => x.Id == recipeId);
-        public async Task<IEnumerable<Models.RecipeType>> GetRecipeTypesAsync() => RecipeTypes();
-        public async Task<Models.Ingredient> GetIngredientAsync(int ingredientId) => Ingredients().FirstOrDefault(x => x.Id == ingredientId);
-        public async Task<IEnumerable<Models.IngredientCategory>> GetIngredientCategoriesAsync() => IngredientCategories();
-        public async Task<IEnumerable<Models.IngredientUnit>> GetIngredientUnits() => IngredientUnits();
-        public async Task<IEnumerable<Models.Ingredient>> GetShoppingAsync(int _weekId, int _clientId) => Ingredients();
-        public void MarkIngredientChecked(int clientId, int weekId, int ingredientId) { }
+        public IEntityDAL<Client> Client { get; } = new ClientLogic();
+        public class ClientLogic : IEntityDAL<Client>
+        {
+            public Task DeleteAsync(int id) { return null; }
+            public async Task<IEnumerable<Client>> GetManyAsync(int? fk = default(int?)) => FakeDataService.Clients();
+            public async Task<Client> GetOneAsync(int id) => FakeDataService.Clients().FirstOrDefault(x => x.Id == id);
+            public Task<Client> InsertAsync(Client item) { return null; }
+            public Task<Client> SaveAsync(Client item) { return null; }
+        }
+
+        public IEntityDAL<Week> Week { get; } = new WeekLogic();
+        public class WeekLogic : IEntityDAL<Week>
+        {
+            public Task DeleteAsync(int id) { return null; }
+            public async Task<IEnumerable<Week>> GetManyAsync(int? fk = default(int?)) => FakeDataService.Weeks();
+            public async Task<Week> GetOneAsync(int id) => FakeDataService.Weeks().FirstOrDefault(x => x.Id == id);
+            public Task<Week> InsertAsync(Week item) { return null; }
+            public Task<Week> SaveAsync(Week item) { return null; }
+        }
+
+        public IEntityDAL<Meal> Meal { get; } = new MealLogic();
+        public class MealLogic : IEntityDAL<Meal>
+        {
+            public Task DeleteAsync(int id) { return null; }
+            public async Task<IEnumerable<Meal>> GetManyAsync(int? fk = default(int?)) => FakeDataService.Meals();
+            public async Task<Meal> GetOneAsync(int id) => FakeDataService.Meals().FirstOrDefault(x => x.Id == id);
+            public Task<Meal> InsertAsync(Meal item) { return null; }
+            public Task<Meal> SaveAsync(Meal item) { return null; }
+        }
+
+        public IEntityDAL<Recipe> Recipe { get; } = new RecipeLogic();
+        public class RecipeLogic : IEntityDAL<Recipe>
+        {
+            public Task DeleteAsync(int id) { return null; }
+            public async Task<IEnumerable<Recipe>> GetManyAsync(int? fk = default(int?)) => FakeDataService.Recipes();
+            public async Task<Recipe> GetOneAsync(int id) => FakeDataService.Recipes().FirstOrDefault(x => x.Id == id);
+            public Task<Recipe> InsertAsync(Recipe item) { return null; }
+            public Task<Recipe> SaveAsync(Recipe item) { return null; }
+        }
+
+        public IEntityDAL<Ingredient> Ingredient { get; } = new IngredientLogic();
+        public class IngredientLogic : IEntityDAL<Ingredient>
+        {
+            public Task DeleteAsync(int id) { return null; }
+            public async Task<IEnumerable<Ingredient>> GetManyAsync(int? fk = default(int?)) => FakeDataService.Ingredients();
+            public async Task<Ingredient> GetOneAsync(int id) => FakeDataService.Ingredients().FirstOrDefault(x => x.Id == id);
+            public Task<Ingredient> InsertAsync(Ingredient item) { return null; }
+            public Task<Ingredient> SaveAsync(Ingredient item) { return null; }
+        }
 
         // fake data
 
-        private IEnumerable<Models.Chef> Chefs()
+        static IEnumerable<Models.Chef> Chefs()
         {
             return new[]
             {
@@ -40,7 +81,7 @@ namespace ChefsForSeniors.Services
             };
         }
 
-        private IEnumerable<Models.Client> Clients()
+        static IEnumerable<Models.Client> Clients()
         {
             return new[] {
                 new Models.Client { Name = "Athos" },
@@ -49,7 +90,7 @@ namespace ChefsForSeniors.Services
             };
         }
 
-        private IEnumerable<Models.Week> Weeks()
+        static IEnumerable<Models.Week> Weeks()
         {
             for (int week = 0; week < 3; ++week)
             {
@@ -57,7 +98,7 @@ namespace ChefsForSeniors.Services
             }
         }
 
-        private IEnumerable<Models.Meal> Meals()
+        static IEnumerable<Models.Meal> Meals()
         {
             var id = 0;
             for (int day = 0; day < 7; day++)
@@ -68,7 +109,7 @@ namespace ChefsForSeniors.Services
             }
         }
 
-        private IEnumerable<Models.MealType> MealTypes()
+        static IEnumerable<Models.MealType> MealTypes()
         {
             return new[] {
                 new Models.MealType { Id = 1, Name = "Breakfast" },
@@ -77,7 +118,7 @@ namespace ChefsForSeniors.Services
             };
         }
 
-        private IEnumerable<Models.Recipe> Recipes()
+        static IEnumerable<Models.Recipe> Recipes()
         {
             return new[] {
                 new Models.Recipe { Id = 1, Name = "Spaghetti", Type = RecipeTypes().FirstOrDefault(x => x.Id == 1), Ingredients = Ingredients().Where(x => new[] { 1,2,3 }.Contains(x.Id)) },
@@ -86,7 +127,7 @@ namespace ChefsForSeniors.Services
             };
         }
 
-        private IEnumerable<Models.Ingredient> Ingredients()
+        static IEnumerable<Models.Ingredient> Ingredients()
         {
             return new[] {
                 new Models.Ingredient { Id = 1, Name = "Noodles", Category =  IngredientCategories().First(x => x.Id == 1),  Unit = IngredientUnits().First(x => x.Id == 1), Quantity = "1" },
@@ -99,7 +140,7 @@ namespace ChefsForSeniors.Services
             };
         }
 
-        private IEnumerable<Models.RecipeType> RecipeTypes()
+        static IEnumerable<Models.RecipeType> RecipeTypes()
         {
             return new[] {
                 new Models.RecipeType { Id = 1, Name = "Entree" },
@@ -108,7 +149,7 @@ namespace ChefsForSeniors.Services
             };
         }
 
-        private IEnumerable<Models.IngredientCategory> IngredientCategories()
+        static IEnumerable<Models.IngredientCategory> IngredientCategories()
         {
             return new[] {
                 new Models.IngredientCategory { Id = 1, Name = "Dry Good" },
@@ -119,7 +160,7 @@ namespace ChefsForSeniors.Services
             };
         }
 
-        private IEnumerable<Models.IngredientUnit> IngredientUnits()
+        static IEnumerable<Models.IngredientUnit> IngredientUnits()
         {
             return new[] {
                 new Models.IngredientUnit { Id = 1, Name = "Pound" },
@@ -128,6 +169,48 @@ namespace ChefsForSeniors.Services
                 new Models.IngredientUnit { Id = 4, Name = "Head" },
                 new Models.IngredientUnit { Id = 5, Name = "Box" },
             };
+        }
+
+        public async Task<bool> LoginAsync(Chef chef, string password) => true;
+
+        public Task<IEnumerable<RecipeType>> GetRecipeTypesAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<IngredientCategory>> GetIngredientCategoriesAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<IngredientUnit>> GetIngredientUnits()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<Ingredient>> GetShoppingPendingAsync(int weekId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<Ingredient>> GetShoppingPurchasedAsync(int weekId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MarkIngredientChecked(int weekId, int ingredientId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MarkIngredientUnChecked(int weekId, int ingredientId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<MealType>> GetMealTypesAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }

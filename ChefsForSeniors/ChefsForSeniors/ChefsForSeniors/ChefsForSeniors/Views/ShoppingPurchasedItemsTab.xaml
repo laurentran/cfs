@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="ChefsForSeniors.Views.ShoppingPurchasedItemsTab"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ChefsForSeniors.Views;assembly=ChefsForSeniors"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             Title="{Binding Path=Tab2Title}">
+
+    <ListView ItemsSource="{Binding Path=PurchasedItems}" SelectedItem="{Binding Path=SelectedPurchasedItem, Mode=TwoWay}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Detail="{Binding Path=Detail}" Text="{Binding Path=Text}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>
+

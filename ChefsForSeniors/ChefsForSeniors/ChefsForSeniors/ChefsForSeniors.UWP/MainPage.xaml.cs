@@ -17,8 +17,9 @@ namespace ChefsForSeniors.UWP
     {
         public void RegisterTypes(IUnityContainer container)
         {
-            container.RegisterType<ISqliteService, Services.SqliteService>();
-            container.RegisterType<IRestService, Services.RestService>();
+            container.RegisterType<ISqliteService, Services.SqliteService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IHockeyAppService, Services.HockeyAppService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IRestService, Services.RestService>(new ContainerControlledLifetimeManager());
         }
     }
 }
