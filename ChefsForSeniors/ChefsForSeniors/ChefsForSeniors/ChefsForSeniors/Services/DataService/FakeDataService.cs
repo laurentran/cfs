@@ -73,21 +73,16 @@ namespace ChefsForSeniors.Services
 
         static IEnumerable<Models.Chef> Chefs()
         {
-            return new[]
-            {
-                new Models.Chef { Name = "Larry" },
-                new Models.Chef { Name = "Moe" },
-                new Models.Chef { Name = "Curley" },
-            };
+            yield return new Models.Chef { Name = "Larry" };
+            yield return new Models.Chef { Name = "Moe" };
+            yield return new Models.Chef { Name = "Curley" };
         }
 
         static IEnumerable<Models.Client> Clients()
         {
-            return new[] {
-                new Models.Client { Name = "Athos" },
-                new Models.Client { Name = "Porthos" },
-                new Models.Client { Name = "Aramis" },
-            };
+            yield return new Models.Client { Name = "Athos" };
+            yield return new Models.Client { Name = "Porthos" };
+            yield return new Models.Client { Name = "Aramis" };
         }
 
         static IEnumerable<Models.Week> Weeks()
@@ -111,106 +106,62 @@ namespace ChefsForSeniors.Services
 
         static IEnumerable<Models.MealType> MealTypes()
         {
-            return new[] {
-                new Models.MealType { Id = 1, Name = "Breakfast" },
-                new Models.MealType { Id = 2, Name = "Lunch" },
-                new Models.MealType { Id = 3, Name = "Dinner" },
-            };
+            yield return new Models.MealType { Id = 1, Name = "Breakfast" };
+            yield return new Models.MealType { Id = 2, Name = "Lunch" };
+            yield return new Models.MealType { Id = 3, Name = "Dinner" };
         }
 
         static IEnumerable<Models.Recipe> Recipes()
         {
-            return new[] {
-                new Models.Recipe { Id = 1, Name = "Spaghetti", Type = RecipeTypes().FirstOrDefault(x => x.Id == 1), Ingredients = Ingredients().Where(x => new[] { 1,2,3 }.Contains(x.Id)) },
-                new Models.Recipe { Id = 2, Name = "Salad",     Type = RecipeTypes().FirstOrDefault(x => x.Id == 2), Ingredients = Ingredients().Where(x => new[] { 4,5,6 }.Contains(x.Id)) },
-                new Models.Recipe { Id = 3, Name = "Pudding",   Type = RecipeTypes().FirstOrDefault(x => x.Id == 3), Ingredients = Ingredients().Where(x => new[] { 7 }.Contains(x.Id)) },
-            };
+            yield return new Models.Recipe { Id = 1, Name = "Spaghetti", Type = RecipeTypes().FirstOrDefault(x => x.Id == 1), Ingredients = Ingredients().Where(x => new[] { 1, 2, 3 }.Contains(x.Id)) };
+            yield return new Models.Recipe { Id = 2, Name = "Salad", Type = RecipeTypes().FirstOrDefault(x => x.Id == 2), Ingredients = Ingredients().Where(x => new[] { 4, 5, 6 }.Contains(x.Id)) };
+            yield return new Models.Recipe { Id = 3, Name = "Pudding", Type = RecipeTypes().FirstOrDefault(x => x.Id == 3), Ingredients = Ingredients().Where(x => new[] { 7 }.Contains(x.Id)) };
         }
 
         static IEnumerable<Models.Ingredient> Ingredients()
         {
-            return new[] {
-                new Models.Ingredient { Id = 1, Name = "Noodles", Category =  IngredientCategories().First(x => x.Id == 1),  Unit = IngredientUnits().First(x => x.Id == 1), Quantity = "1" },
-                new Models.Ingredient { Id = 2, Name = "Cheese", Category =   IngredientCategories().First(x => x.Id == 4 ), Unit = IngredientUnits().First(x => x.Id == 2), Quantity = "3" },
-                new Models.Ingredient { Id = 3, Name = "Sauce", Category =    IngredientCategories().First(x => x.Id == 3 ), Unit = IngredientUnits().First(x => x.Id == 3), Quantity = "1" },
-                new Models.Ingredient { Id = 4, Name = "Lettuce", Category =  IngredientCategories().First(x => x.Id == 5 ), Unit = IngredientUnits().First(x => x.Id == 4), Quantity = "1" },
-                new Models.Ingredient { Id = 5, Name = "Crouton", Category =  IngredientCategories().First(x => x.Id == 1 ), Unit = IngredientUnits().First(x => x.Id == 2), Quantity = "4" },
-                new Models.Ingredient { Id = 6, Name = "Dressing", Category = IngredientCategories().First(x => x.Id == 1 ), Unit = IngredientUnits().First(x => x.Id == 2), Quantity = "8" },
-                new Models.Ingredient { Id = 7, Name = "Pudding", Category =  IngredientCategories().First(x => x.Id == 1 ), Unit = IngredientUnits().First(x => x.Id == 5), Quantity = "1" },
-            };
+            yield return new Models.Ingredient { Id = 1, Name = "Noodles", Category = IngredientCategories().First(x => x.Id == 1), Unit = IngredientUnits().First(x => x.Id == 1), Quantity = "1" };
+            yield return new Models.Ingredient { Id = 2, Name = "Cheese", Category = IngredientCategories().First(x => x.Id == 4), Unit = IngredientUnits().First(x => x.Id == 2), Quantity = "3" };
+            yield return new Models.Ingredient { Id = 3, Name = "Sauce", Category = IngredientCategories().First(x => x.Id == 3), Unit = IngredientUnits().First(x => x.Id == 3), Quantity = "1" };
+            yield return new Models.Ingredient { Id = 4, Name = "Lettuce", Category = IngredientCategories().First(x => x.Id == 5), Unit = IngredientUnits().First(x => x.Id == 4), Quantity = "1" };
+            yield return new Models.Ingredient { Id = 5, Name = "Crouton", Category = IngredientCategories().First(x => x.Id == 1), Unit = IngredientUnits().First(x => x.Id == 2), Quantity = "4" };
+            yield return new Models.Ingredient { Id = 6, Name = "Dressing", Category = IngredientCategories().First(x => x.Id == 1), Unit = IngredientUnits().First(x => x.Id == 2), Quantity = "8" };
+            yield return new Models.Ingredient { Id = 7, Name = "Pudding", Category = IngredientCategories().First(x => x.Id == 1), Unit = IngredientUnits().First(x => x.Id == 5), Quantity = "1" };
         }
 
         static IEnumerable<Models.RecipeType> RecipeTypes()
         {
-            return new[] {
-                new Models.RecipeType { Id = 1, Name = "Entree" },
-                new Models.RecipeType { Id = 2, Name = "Side" },
-                new Models.RecipeType { Id = 3, Name = "Dessert" },
-            };
+            yield return new Models.RecipeType { Id = 1, Name = "Entree" };
+            yield return new Models.RecipeType { Id = 2, Name = "Side" };
+            yield return new Models.RecipeType { Id = 3, Name = "Dessert" };
         }
 
         static IEnumerable<Models.IngredientCategory> IngredientCategories()
         {
-            return new[] {
-                new Models.IngredientCategory { Id = 1, Name = "Dry Good" },
-                new Models.IngredientCategory { Id = 2, Name = "Dairy" },
-                new Models.IngredientCategory { Id = 3, Name = "Canned" },
-                new Models.IngredientCategory { Id = 4, Name = "Dairy" },
-                new Models.IngredientCategory { Id = 5, Name = "Vegetable" },
-            };
+            yield return new Models.IngredientCategory { Id = 1, Name = "Dry Good" };
+            yield return new Models.IngredientCategory { Id = 2, Name = "Dairy" };
+            yield return new Models.IngredientCategory { Id = 3, Name = "Canned" };
+            yield return new Models.IngredientCategory { Id = 4, Name = "Dairy" };
+            yield return new Models.IngredientCategory { Id = 5, Name = "Vegetable" };
         }
 
         static IEnumerable<Models.IngredientUnit> IngredientUnits()
         {
-            return new[] {
-                new Models.IngredientUnit { Id = 1, Name = "Pound" },
-                new Models.IngredientUnit { Id = 2, Name = "Ounce" },
-                new Models.IngredientUnit { Id = 3, Name = "Quart" },
-                new Models.IngredientUnit { Id = 4, Name = "Head" },
-                new Models.IngredientUnit { Id = 5, Name = "Box" },
-            };
+            yield return new Models.IngredientUnit { Id = 1, Name = "Pound" };
+            yield return new Models.IngredientUnit { Id = 2, Name = "Ounce" };
+            yield return new Models.IngredientUnit { Id = 3, Name = "Quart" };
+            yield return new Models.IngredientUnit { Id = 4, Name = "Head" };
+            yield return new Models.IngredientUnit { Id = 5, Name = "Box" };
         }
 
         public async Task<bool> LoginAsync(Chef chef, string password) => true;
-
-        public Task<IEnumerable<RecipeType>> GetRecipeTypesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<IngredientCategory>> GetIngredientCategoriesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<IngredientUnit>> GetIngredientUnits()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<Ingredient>> GetShoppingPendingAsync(int weekId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<Ingredient>> GetShoppingPurchasedAsync(int weekId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void MarkIngredientChecked(int weekId, int ingredientId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void MarkIngredientUnChecked(int weekId, int ingredientId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<MealType>> GetMealTypesAsync()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IEnumerable<RecipeType>> GetRecipeTypesAsync() => RecipeTypes();
+        public async Task<IEnumerable<IngredientCategory>> GetIngredientCategoriesAsync() => IngredientCategories();
+        public async Task<IEnumerable<IngredientUnit>> GetIngredientUnits() => IngredientUnits();
+        public async Task<IEnumerable<Ingredient>> GetShoppingPendingAsync(int weekId) => Ingredients();
+        public async Task<IEnumerable<Ingredient>> GetShoppingPurchasedAsync(int weekId) => Ingredients();
+        public void MarkIngredientChecked(int weekId, int ingredientId) { }
+        public void MarkIngredientUnChecked(int weekId, int ingredientId) { }
+        public async Task<IEnumerable<MealType>> GetMealTypesAsync() => MealTypes();
     }
 }

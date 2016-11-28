@@ -16,7 +16,8 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ListView Grid.Row="0"
+        <ListView Grid.Row="0" ItemSelected="ListView_ItemSelected"
+                  SeparatorVisibility="Default"
                   ItemsSource="{Binding Path=Items}"
                   SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}">
             <ListView.ItemTemplate>
@@ -26,18 +27,18 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Entry Grid.Row="1"
+        <!--<Entry Grid.Row="1"
                IsPassword="True"
                Placeholder="Password"
-               Text="{Binding Password, Mode=TwoWay}" />
+               Text="{Binding Password, Mode=TwoWay}" />-->
 
         <Button Grid.Row="2"
                 Command="{Binding LoginCommand}"
                 Text="Login" />
 
-        <Button Grid.Row="3"
+        <!--<Button Grid.Row="3"
                 Command="{Binding NewCommand}"
-                Text="+ Chef" />
+                Text="+ Chef" />-->
     </Grid>
 
 </ContentPage>

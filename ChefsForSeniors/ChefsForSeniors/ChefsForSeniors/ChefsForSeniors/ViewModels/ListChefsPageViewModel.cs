@@ -37,6 +37,7 @@ namespace ChefsForSeniors.ViewModels
             Title = "Please login";
 
             Items = await _dataService.Chef.GetManyAsync();
+            SelectedItem = Items.First();
         }
 
         string _title = nameof(ListChefsPageViewModel);

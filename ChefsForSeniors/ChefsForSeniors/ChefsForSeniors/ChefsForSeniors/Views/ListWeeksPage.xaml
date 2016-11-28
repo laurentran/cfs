@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage x:Class="ChefsForSeniors.Views.ListWeeksPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -15,7 +16,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <StackLayout>
+        <StackLayout Grid.Row="0">
             <Label Text="Client name" />
             <Entry Text="{Binding Client.Name, Mode=TwoWay}" />
             <StackLayout Orientation="Horizontal">
@@ -24,7 +25,7 @@
             </StackLayout>
         </StackLayout>
 
-        <ListView Grid.Row="1" 
+        <ListView Grid.Row="1" ItemSelected="ListView_ItemSelected"
                   fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}"
                   ItemsSource="{Binding Path=Items}">
             <ListView.ItemTemplate>

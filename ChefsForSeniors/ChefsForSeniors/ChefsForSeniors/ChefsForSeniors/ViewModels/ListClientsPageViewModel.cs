@@ -57,7 +57,7 @@ namespace ChefsForSeniors.ViewModels
         {
             var client = item as Models.Client;
             var parameters = new NavigationParameters($"{client.GetType()}={client.Id}");
-            _navigationService.NavigateAsync(nameof(Views.ListWeeksPage), parameters);
+            await _navigationService.NavigateAsync(nameof(Views.ListWeeksPage), parameters);
         }));
 
         DelegateCommand<string> _saveCommand;

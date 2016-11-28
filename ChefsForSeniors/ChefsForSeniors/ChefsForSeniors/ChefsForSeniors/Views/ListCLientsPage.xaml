@@ -30,7 +30,8 @@
                   ItemsSource="{Binding Path=Items}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Detail="{Binding Path=Detail}" Text="{Binding Path=Text}" />
+                    <!--<TextCell Detail="{Binding Path=Detail}" Text="{Binding Path=Text}" />-->
+                    <TextCell Detail="Earll" Text="James" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
