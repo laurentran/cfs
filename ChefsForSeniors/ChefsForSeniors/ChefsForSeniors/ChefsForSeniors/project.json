@@ -1,0 +1,18 @@
+﻿{
+  "supports": {},
+  "dependencies": {
+    "CommonServiceLocator": "1.3.0",
+    "FreshEssentials": "2.1.2",
+    "Newtonsoft.Json": "9.0.1",
+    "Prism.Core": "6.2.0",
+    "Prism.Forms": "6.2.0",
+    "Prism.Unity.Forms": "6.2.0",
+    "sqlite-net-pcl": "1.1.2",
+    "SQLitePCLRaw.bundle_green": "1.0.1",
+    "SQLitePCLRaw.core": "1.0.1",
+    "Xamarin.Forms": "2.3.3.168"
+  },
+  "frameworks": {
+    ".NETPortable,Version=v4.6,Profile=Profile44": {}
+  }
+}
