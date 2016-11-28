@@ -71,7 +71,6 @@
     <Compile Include="..\..\..\..\ChefsForSeniors.Data.DTO\Models\Unit.cs">
       <Link>Models\DTO\Unit.cs</Link>
     </Compile>
-    <Compile Include="Controls\ListViewEx.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\IngredientCategory.cs" />
     <Compile Include="Models\IngredientUnit.cs" />
@@ -233,7 +232,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Models\ModelDiagram.cd" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ListChefsPage.xaml">

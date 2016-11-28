@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections.ObjectModel;
 using ChefsForSeniors.Utilities;
+using System.Windows.Input;
 
 namespace ChefsForSeniors.ViewModels
 {
@@ -68,7 +69,7 @@ namespace ChefsForSeniors.ViewModels
         }));
 
         DelegateCommand<string> _deleteCommand;
-        public DelegateCommand<string> DeleteCommand => _deleteCommand ?? (_deleteCommand = new DelegateCommand<string>(
+        public ICommand DeleteCommand => _deleteCommand ?? (_deleteCommand = new DelegateCommand<string>(
         async (uri) =>
         {
             var confirm = await _pageDialogService.DisplayAlertAsync("Delete", "Are you sure?", "Delete", "Cancel");

@@ -24,21 +24,22 @@
             <fe:BindablePicker DisplayProperty="Name"
                                ItemsSource="{Binding MealTypes}"
                                SelectedItem="{Binding Meal.MealType, Mode=TwoWay}" />
-            <Button Command="{Binding SaveCommand}" Text="Save meal" />
-            <Button Command="{Binding DeleteCommand}" Text="Delete meal" />
+            <StackLayout Orientation="Horizontal">
+                <Button Command="{Binding SaveCommand}" Text="Save meal" />
+                <Button Command="{Binding DeleteCommand}" Text="Delete meal" />
+            </StackLayout>
         </StackLayout>
 
-        <c:ListViewEx xmlns:c="ChefsForSeniors.Controls"
-                      Grid.Row="1"
-                      fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}"
-                      ItemsSource="{Binding Path=Items}"
-                      SeparatorVisibility="Default">
+        <ListView Grid.Row="1"
+                  fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}"
+                  ItemsSource="{Binding Path=Items}"
+                  SeparatorVisibility="Default">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Detail="{Binding Path=Detail}" Text="{Binding Path=Text}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </c:ListViewEx>
+        </ListView>
 
         <Button Grid.Row="2"
                 Command="{Binding NavigateToShoppingCommand}"

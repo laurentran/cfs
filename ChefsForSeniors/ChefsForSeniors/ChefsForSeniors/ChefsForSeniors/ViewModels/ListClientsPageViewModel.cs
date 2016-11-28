@@ -36,13 +36,10 @@ namespace ChefsForSeniors.ViewModels
             {
                 throw new ArgumentException(nameof(parameters));
             }
+
             Chef = await _dataService.Chef.GetOneAsync(chefId);
 
-            var clients = await _dataService.Client.GetManyAsync(chefId);
-            foreach (var client in clients)
-            {
-                Items.Add(client);
-            }
+            Items = await _dataService.Client.GetManyAsync(chefId);
         }
 
         string _title = nameof(ListClientsPageViewModel);
@@ -51,14 +48,8 @@ namespace ChefsForSeniors.ViewModels
         Models.Chef _chef = default(Models.Chef);
         public Models.Chef Chef { get { return _chef; } set { SetProperty(ref _chef, value); } }
 
-        public ObservableCollection<Models.Client> Items { get; } = new ObservableCollection<Models.Client>();
-
-        DelegateCommand<string> _saveCommand;
-        public DelegateCommand<string> SaveCommand => _saveCommand ?? (_saveCommand = new DelegateCommand<string>(
-        async (uri) =>
-        {
-            Chef = await _dataService.Chef.SaveAsync(Chef);
-        }));
+        IEnumerable<Models.Client> _items = default(IEnumerable<Models.Client>);
+        public IEnumerable<Models.Client> Items { get { return _items; } set { SetProperty(ref _items, value); } }
 
         DelegateCommand<object> _selectedCommand;
         public DelegateCommand<object> SelectedCommand => _selectedCommand ?? (_selectedCommand = new DelegateCommand<object>(
@@ -66,7 +57,14 @@ namespace ChefsForSeniors.ViewModels
         {
             var client = item as Models.Client;
             var parameters = new NavigationParameters($"{client.GetType()}={client.Id}");
-            await _navigationService.NavigateAsync(nameof(Views.ListWeeksPage), parameters);
+            _navigationService.NavigateAsync(nameof(Views.ListWeeksPage), parameters);
+        }));
+
+        DelegateCommand<string> _saveCommand;
+        public DelegateCommand<string> SaveCommand => _saveCommand ?? (_saveCommand = new DelegateCommand<string>(
+        async (uri) =>
+        {
+            Chef = await _dataService.Chef.SaveAsync(Chef);
         }));
 
         DelegateCommand<string> _deleteCommand;
