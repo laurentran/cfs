@@ -14,8 +14,6 @@
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <c:ListViewEx Grid.Row="0"
@@ -26,7 +24,9 @@
                       SeparatorVisibility="Default">
             <c:ListViewEx.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Detail="{Binding Path=Detail}" Text="{Binding Path=Text}" />
+                    <ImageCell Detail="{Binding Path=Detail}"
+                               ImageSource="{Binding Path=ImageSource}"
+                               Text="{Binding Path=Text}" />
                 </DataTemplate>
             </c:ListViewEx.ItemTemplate>
         </c:ListViewEx>
@@ -36,13 +36,13 @@
                Placeholder="Password"
                Text="{Binding Password, Mode=TwoWay}" />-->
 
-        <Button Grid.Row="2"
+        <!--<Button Grid.Row="2"
                 Command="{Binding LoginCommand}"
-                Text="Login" />
+                Text="Login" />-->
 
-        <!--<Button Grid.Row="3"
+        <Button Grid.Row="1"
                 Command="{Binding NewCommand}"
-                Text="+ Chef" />-->
+                Text="+ Chef" />
     </Grid>
 
 </ContentPage>

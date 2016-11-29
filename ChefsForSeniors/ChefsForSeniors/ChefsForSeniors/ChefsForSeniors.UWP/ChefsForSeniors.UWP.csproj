@@ -19,7 +19,6 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>ChefsForSeniors.UWP_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\ARM\Debug\</OutputPath>
@@ -89,7 +88,6 @@
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
-  
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="project.json" />
@@ -113,6 +111,14 @@
     <None Include="ChefsForSeniors.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\CheckboxOff.png" />
+    <Content Include="Images\CheckboxOn.png" />
+    <Content Include="Images\Chef.png" />
+    <Content Include="Images\Client.png" />
+    <Content Include="Images\Ingredient.png" />
+    <Content Include="Images\Meal.png" />
+    <Content Include="Images\Recipe.png" />
+    <Content Include="Images\Week.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

@@ -14,5 +14,9 @@ namespace ChefsForSeniors.Models
 
         public string Text => Name;
         public string Detail => this.GetType().ToString();
+        public Xamarin.Forms.ImageSource ImageSource => Xamarin.Forms.Device.OnPlatform(
+            iOS: Xamarin.Forms.ImageSource.FromFile("Images/Recipe.png"),
+            Android: Xamarin.Forms.ImageSource.FromFile("Images/Recipe.png"),
+            WinPhone: Xamarin.Forms.ImageSource.FromFile("Images/Recipe.png"));
     }
 }

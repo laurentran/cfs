@@ -37,7 +37,9 @@
                       SeparatorVisibility="Default">
             <c:ListViewEx.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Detail="{Binding Path=Detail}" Text="{Binding Path=Text}" />
+                    <ImageCell Detail="{Binding Path=Detail}"
+                               ImageSource="{Binding Path=ImageSource}"
+                               Text="{Binding Path=Text}" />
                 </DataTemplate>
             </c:ListViewEx.ItemTemplate>
         </c:ListViewEx>

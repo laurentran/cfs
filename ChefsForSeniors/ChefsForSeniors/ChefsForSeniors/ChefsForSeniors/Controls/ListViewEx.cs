@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChefsForSeniors.Controls
 {
-    public class ListViewEx: Xamarin.Forms.ListView
+    public class ListViewEx : Xamarin.Forms.ListView
     {
         public ListViewEx()
         {
@@ -15,7 +15,10 @@ namespace ChefsForSeniors.Controls
 
         private void ListViewEx_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
-            SelectedItem = null;
+            if (SelectedItem != null)
+            {
+                SelectedItem = null;
+            }
         }
     }
 }
