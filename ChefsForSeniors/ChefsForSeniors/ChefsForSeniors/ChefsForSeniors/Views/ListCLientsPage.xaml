@@ -12,23 +12,23 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <StackLayout Grid.Row="0">
-            <Label Margin="8,16,0,0" Text="Chef name" />
-            <Entry Text="{Binding Chef.Name, Mode=TwoWay}" />
-            <StackLayout Orientation="Horizontal">
-                <Button Command="{Binding SaveCommand}" Text="Save chef" />
-                <Button Command="{Binding DeleteCommand}" Text="Delete chef" />
-            </StackLayout>
-        </StackLayout>
-
-        <c:ListViewEx Grid.Row="1"
+        <c:ListViewEx Grid.Row="0"
                       fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}"
                       ItemsSource="{Binding Path=Items}">
+            <c:ListViewEx.Header>
+                <StackLayout>
+                    <Label Margin="8,16,0,0" Text="Chef name" />
+                    <Entry Text="{Binding Chef.Name, Mode=TwoWay}" />
+                    <StackLayout Orientation="Horizontal">
+                        <Button Command="{Binding SaveCommand}" Text="Save chef" />
+                        <Button Command="{Binding DeleteCommand}" Text="Delete chef" />
+                    </StackLayout>
+                </StackLayout>
+            </c:ListViewEx.Header>
             <c:ListViewEx.ItemTemplate>
                 <DataTemplate>
                     <ImageCell Detail="{Binding Path=Detail}"
@@ -38,9 +38,9 @@
             </c:ListViewEx.ItemTemplate>
         </c:ListViewEx>
 
-        <Button Grid.Row="2"
-                Command="{Binding NewCommand}"
-                Text="+ Client" />
+        <StackLayout Grid.Row="1" Orientation="Horizontal">
+            <Button Command="{Binding NewCommand}" Text="Add a Client" />
+        </StackLayout>
 
     </Grid>
 

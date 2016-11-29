@@ -40,9 +40,12 @@
                 Command="{Binding LoginCommand}"
                 Text="Login" />-->
 
-        <Button Grid.Row="1"
-                Command="{Binding NewCommand}"
-                Text="+ Chef" />
+        <StackLayout Grid.Row="1" Orientation="Horizontal">
+            <Button Grid.Row="1"
+                    Command="{Binding NewCommand}"
+                    Text="Add a Chef" />
+        </StackLayout>
+
     </Grid>
 
 </ContentPage>
