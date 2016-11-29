@@ -9,9 +9,7 @@
              Title="{Binding Path=Title}"
              prism:ViewModelLocator.AutowireViewModel="True">
 
-    <c:ListViewEx fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}"
-                  ItemsSource="{Binding Path=Items}"
-                  SeparatorVisibility="Default">
+    <c:ListViewEx fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}" ItemsSource="{Binding Path=Items}">
         <c:ListViewEx.Header>
             <StackLayout>
                 <Label Margin="8,16,0,0" Text="Meal name" />
@@ -33,10 +31,11 @@
                            Text="{Binding Path=Text}" />
             </DataTemplate>
         </c:ListViewEx.ItemTemplate>
-        <c:ListViewEx.Footer>
-            <Button Command="{Binding NewCommand}" Text="+ Meal" />
-        </c:ListViewEx.Footer>
     </c:ListViewEx>
+
+    <StackLayout Grid.Row="1" Orientation="Horizontal">
+        <Button Command="{Binding NewCommand}" Text="Add a Meal" />
+    </StackLayout>
 
 </ContentPage>
 

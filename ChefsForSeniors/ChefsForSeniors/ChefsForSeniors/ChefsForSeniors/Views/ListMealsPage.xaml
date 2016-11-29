@@ -12,27 +12,25 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <StackLayout Grid.Row="0">
-            <Label Margin="8,16,0,0" Text="Week date" />
-            <DatePicker Date="{Binding Week.Date, Mode=TwoWay}" />
-            <StackLayout Orientation="Horizontal">
-                <Button Command="{Binding SaveCommand}" Text="Save week" />
-                <Button Command="{Binding DeleteCommand}" Text="Delete week" />
-            </StackLayout>
-        </StackLayout>
-
-        <c:ListViewEx Grid.Row="1"
-                      fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}"
+        <c:ListViewEx fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}"
                       GroupDisplayBinding="{Binding Text}"
                       IsGroupingEnabled="true"
-                      ItemsSource="{Binding Path=Items}"
-                      SeparatorVisibility="Default">
+                      ItemsSource="{Binding Path=Items}">
+            <c:ListViewEx.Header>
+                <StackLayout BackgroundColor="DimGray">
+                    <Label Margin="8,16,0,0" Text="Week date" />
+                    <DatePicker Date="{Binding Week.Date, Mode=TwoWay}" />
+                    <StackLayout Orientation="Horizontal">
+                        <Button Command="{Binding SaveCommand}" Text="Save week" />
+                        <Button Command="{Binding DeleteCommand}" Text="Delete week" />
+                    </StackLayout>
+                </StackLayout>
+
+            </c:ListViewEx.Header>
             <c:ListViewEx.ItemTemplate>
                 <DataTemplate>
                     <ImageCell Detail="{Binding Path=Detail}"
@@ -47,13 +45,10 @@
             </c:ListViewEx.GroupHeaderTemplate>
         </c:ListViewEx>
 
-        <Button Grid.Row="2"
-                Command="{Binding NavigateToShoppingCommand}"
-                Text="Shopping List" />
-
-        <Button Grid.Row="3"
-                Command="{Binding NewCommand}"
-                Text="+ Meal" />
+        <StackLayout Grid.Row="1" Orientation="Horizontal">
+            <Button Command="{Binding NavigateToShoppingCommand}" Text="Shopping List" />
+            <Button Command="{Binding NewCommand}" Text="Add a Meal" />
+        </StackLayout>
 
     </Grid>
 

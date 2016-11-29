@@ -12,28 +12,25 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <StackLayout Grid.Row="0">
-            <Label Margin="8,16,0,0" Text="Recipe name" />
-            <Entry Text="{Binding Recipe.Name, Mode=TwoWay}" />
-            <Label Text="Recipe type" />
-            <fe:BindablePicker DisplayProperty="Name"
-                               ItemsSource="{Binding RecipeTypes}"
-                               SelectedItem="{Binding Recipe.RecipeType, Mode=TwoWay}" />
-            <StackLayout Orientation="Horizontal">
-                <Button Command="{Binding Path=SaveCommand}" Text="Save recipe" />
-                <Button Command="{Binding Path=DeleteCommand}" Text="Delete recipe" />
-            </StackLayout>
-        </StackLayout>
-
-        <c:ListViewEx Grid.Row="1"
-                      fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}"
-                      ItemSelected="ListView_ItemSelected"
-                      SeparatorVisibility="Default">
+        <c:ListViewEx fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}" ItemSelected="ListView_ItemSelected">
+            <c:ListViewEx.Header>
+                <StackLayout>
+                    <Label Margin="8,16,0,0" Text="Recipe name" />
+                    <Entry Text="{Binding Recipe.Name, Mode=TwoWay}" />
+                    <Label Text="Recipe type" />
+                    <fe:BindablePicker DisplayProperty="Name"
+                                       ItemsSource="{Binding RecipeTypes}"
+                                       SelectedItem="{Binding Recipe.RecipeType, Mode=TwoWay}" />
+                    <StackLayout Orientation="Horizontal">
+                        <Button Command="{Binding Path=SaveCommand}" Text="Save recipe" />
+                        <Button Command="{Binding Path=DeleteCommand}" Text="Delete recipe" />
+                    </StackLayout>
+                </StackLayout>
+            </c:ListViewEx.Header>
             <c:ListViewEx.ItemTemplate>
                 <DataTemplate>
                     <ImageCell Detail="{Binding Path=Detail}"
@@ -43,9 +40,9 @@
             </c:ListViewEx.ItemTemplate>
         </c:ListViewEx>
 
-        <Button Grid.Row="2"
-                Command="{Binding NewCommand}"
-                Text="+ Ingredient" />
+        <StackLayout Grid.Row="1" Orientation="Horizontal">
+            <Button Command="{Binding NewCommand}" Text="+ Ingredient" />
+        </StackLayout>
 
     </Grid>
 
