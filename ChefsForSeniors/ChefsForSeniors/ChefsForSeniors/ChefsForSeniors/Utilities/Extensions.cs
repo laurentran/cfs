@@ -11,13 +11,13 @@ namespace ChefsForSeniors.Utilities
     {
         public static bool TryGetParameter(this NavigationParameters parameters, string key, out int clientId)
         {
+            clientId = default(int);
             if (parameters.ContainsKey(key))
             {
                 return int.TryParse(parameters[key]?.ToString(), out clientId);
             }
             else
             {
-                clientId = default(int);
                 return false;
             }
         }
