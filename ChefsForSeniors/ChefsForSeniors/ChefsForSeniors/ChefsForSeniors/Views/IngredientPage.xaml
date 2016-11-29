@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ChefsForSeniors.Views;assembly=ChefsForSeniors"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             Title="{Binding Path=Title}"
+             Title="{Binding Path=Title, Mode=OneTime}"
              prism:ViewModelLocator.AutowireViewModel="True">
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">

@@ -6,7 +6,7 @@
              xmlns:fe="clr-namespace:FreshEssentials;assembly=FreshEssentials"
              xmlns:local="clr-namespace:ChefsForSeniors.Views;assembly=ChefsForSeniors"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             Title="{Binding Path=Title}"
+             Title="{Binding Path=Title, Mode=OneTime}"
              prism:ViewModelLocator.AutowireViewModel="True">
 
     <c:ListViewEx fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}" ItemsSource="{Binding Path=Items}">
