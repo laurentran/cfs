@@ -20,7 +20,7 @@ namespace ChefsForSeniors.ViewModels
             _navigationService = navigationService;
             _dataService = dataService;
 
-            Title = "Ingredients in recipe";
+            Title = "Recipes in meal";
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
