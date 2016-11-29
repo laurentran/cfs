@@ -75,7 +75,7 @@ namespace ChefsForSeniors.ViewModels
             if (confirm)
             {
                 await _dataService.Chef.DeleteAsync(Chef.Id);
-                await _navigationService.NavigateAsync(nameof(Views.ListChefsPage));
+                await _navigationService.NavigateAsync(nameof(Views.ListChefsPage)); 
             }
         }));
 

@@ -4,7 +4,6 @@ using System.Linq;
 using ChefsForSeniors.Utilities;
 using Prism.Mvvm;
 using Prism.Navigation;
-using Windows.UI.Xaml;
 using Prism.Commands;
 using ChefsForSeniors.Services;
 

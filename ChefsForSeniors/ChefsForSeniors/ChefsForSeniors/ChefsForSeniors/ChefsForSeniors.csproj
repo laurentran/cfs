@@ -84,7 +84,7 @@
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Services\Constants.cs" />
     <Compile Include="Services\DataService\IDataService.cs" />
-    <Compile Include="Services\DataService\DataService.cs" />
+    <Compile Include="Services\DataService\RealDataService.cs" />
     <Compile Include="Services\DataService\FakeDataService.cs" />
     <Compile Include="Services\IHockeyAppService.cs" />
     <Compile Include="Services\ISqliteService.cs" />
@@ -174,11 +174,6 @@
     </Compile>
   </ItemGroup>-->
   <ItemGroup />
-  <ItemGroup>
-    <Reference Include="Windows.Foundation.UniversalApiContract">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\References\Windows.Foundation.UniversalApiContract\3.0.0.0\Windows.Foundation.UniversalApiContract.winmd</HintPath>
-    </Reference>
-  </ItemGroup>
   <ItemGroup>
     <None Include="Models\ModelDiagram.cd" />
     <None Include="project.json" />

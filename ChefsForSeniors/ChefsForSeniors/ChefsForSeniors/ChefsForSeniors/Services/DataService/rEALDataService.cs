@@ -8,12 +8,12 @@ using ChefsForSeniors.Models;
 namespace ChefsForSeniors.Services
 {
 
-    public class DataService : IDataService
+    public class RealDataService : IDataService
     {
         IRestService _restService;
         ISqliteService _sqliteService;
 
-        public DataService(IRestService restService, ISqliteService sqliteService)
+        public RealDataService(IRestService restService, ISqliteService sqliteService)
         {
             _restService = restService;
             _sqliteService = sqliteService;
