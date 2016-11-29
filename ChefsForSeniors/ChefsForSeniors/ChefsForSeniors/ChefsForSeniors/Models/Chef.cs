@@ -8,6 +8,17 @@ namespace ChefsForSeniors.Models
 {
     public class Chef
     {
+        public Chef()
+        {
+            // empty (used by fake)
+        }
+
+        public Chef(Data.DTO.Models.Chef chef)
+        {
+            Id = chef.ID;
+            Name = chef.Name;
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
 
