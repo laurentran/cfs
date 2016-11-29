@@ -160,8 +160,8 @@ namespace ChefsForSeniors.Services
         public async Task<IEnumerable<IngredientUnit>> GetIngredientUnits() => IngredientUnits();
         public async Task<IEnumerable<Ingredient>> GetShoppingPendingAsync(int weekId) => Ingredients();
         public async Task<IEnumerable<Ingredient>> GetShoppingPurchasedAsync(int weekId) => Ingredients();
-        public void MarkIngredientChecked(int weekId, int ingredientId) { }
-        public void MarkIngredientUnChecked(int weekId, int ingredientId) { }
+        public void MarkIngredientPurchased(int weekId, int ingredientId) { }
+        public void MarkIngredientPending(int weekId, int ingredientId) { }
         public async Task<IEnumerable<MealType>> GetMealTypesAsync() => MealTypes();
     }
 }

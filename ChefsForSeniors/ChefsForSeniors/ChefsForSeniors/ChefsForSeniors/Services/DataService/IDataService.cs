@@ -34,8 +34,8 @@ namespace ChefsForSeniors.Services
         Task<IEnumerable<Models.Ingredient>> GetShoppingPendingAsync(int weekId);
         Task<IEnumerable<Models.Ingredient>> GetShoppingPurchasedAsync(int weekId);
 
-        void MarkIngredientChecked(int weekId, int ingredientId);
-        void MarkIngredientUnChecked(int weekId, int ingredientId);
+        void MarkIngredientPurchased(int weekId, int ingredientId);
+        void MarkIngredientPending(int weekId, int ingredientId);
         Task<IEnumerable<MealType>> GetMealTypesAsync();
     }
 

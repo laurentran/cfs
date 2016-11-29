@@ -21,6 +21,8 @@ namespace ChefsForSeniors.ViewModels
             _pageDialogService = pageDialogService;
             _navigationService = navigationService;
             _dataService = dataService;
+
+            Title = "Weeks for client";
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -30,8 +32,6 @@ namespace ChefsForSeniors.ViewModels
 
         public async void OnNavigatedTo(NavigationParameters parameters)
         {
-            Title = "Weeks for client";
-
             int clientId = default(int);
             if (!parameters.TryGetParameter(typeof(Models.Client).ToString(), out clientId))
             {

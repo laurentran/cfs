@@ -2,9 +2,9 @@ using Xamarin.Forms;
 
 namespace ChefsForSeniors.Views
 {
-    public partial class ShoppingPurchasedItemsTab : ContentPage
+    public partial class ShoppingPageTab1 : ContentPage
     {
-        public ShoppingPurchasedItemsTab()
+        public ShoppingPageTab1()
         {
             InitializeComponent();
         }

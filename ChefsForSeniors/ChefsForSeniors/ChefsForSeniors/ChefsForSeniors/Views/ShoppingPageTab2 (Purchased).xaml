@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="ChefsForSeniors.Views.ShoppingPurchasedItemsTab"
+<ContentPage x:Class="ChefsForSeniors.Views.ShoppingPageTab2"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c="clr-namespace:ChefsForSeniors.Controls;assembly=ChefsForSeniors"
+             xmlns:fe="clr-namespace:FreshEssentials;assembly=FreshEssentials"
              xmlns:local="clr-namespace:ChefsForSeniors.Views;assembly=ChefsForSeniors"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             Title="{Binding Path=Tab2Title}">
+             Title="{Binding Path=Title}">
 
-    <ListView ItemsSource="{Binding Path=PurchasedItems}" SelectedItem="{Binding Path=SelectedPurchasedItem, Mode=TwoWay}">
-        <ListView.ItemTemplate>
+    <c:ListViewEx fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}" ItemsSource="{Binding Path=Items}">
+        <c:ListViewEx.ItemTemplate>
             <DataTemplate>
                 <TextCell Detail="{Binding Path=Detail}" Text="{Binding Path=Text}" />
             </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+        </c:ListViewEx.ItemTemplate>
+    </c:ListViewEx>
 
 </ContentPage>
 

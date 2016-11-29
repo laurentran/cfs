@@ -5,6 +5,8 @@ using ChefsForSeniors.Utilities;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Windows.UI.Xaml;
+using Prism.Commands;
+using ChefsForSeniors.Services;
 
 namespace ChefsForSeniors.ViewModels
 {
@@ -17,29 +19,10 @@ namespace ChefsForSeniors.ViewModels
         {
             _navigationService = navigationService;
             _dataService = dataService;
-            PropertyChanged += (s, e) =>
-            {
-                if (e.PropertyName.Equals(nameof(SelectedPendingItem)) && SelectedPendingItem != null)
-                {
-                    // tab 1
-                    // selected pending (move to purchased)
 
-                    _dataService.MarkIngredientChecked(_weekId, SelectedPendingItem.Id);
-                    PendingItems.Remove(SelectedPendingItem);
-                    PurchasedItems.Add(SelectedPendingItem);
-                    SelectedPendingItem = null;
-                }
-                else if (e.PropertyName.Equals(nameof(SelectedPurchasedItem)) && SelectedPurchasedItem != null)
-                {
-                    // tab 2
-                    // selected purchased (move to pending)
-
-                    _dataService.MarkIngredientUnChecked(_weekId, SelectedPurchasedItem.Id);
-                    PurchasedItems.Remove(SelectedPurchasedItem);
-                    PendingItems.Add(SelectedPurchasedItem);
-                    SelectedPurchasedItem = null;
-                }
-            };
+            Title = "Shopping list";
+            Tab1 = new TabLogic() { Title = "Pending items" };
+            Tab2 = new TabLogic() { Title = "Purchased items" };
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -47,54 +30,72 @@ namespace ChefsForSeniors.ViewModels
             // empty
         }
 
-        int _weekId = default(int);
         public async void OnNavigatedTo(NavigationParameters parameters)
         {
-            if (!parameters.TryGetParameter(typeof(Models.Week).ToString(), out _weekId))
+            int weekId = default(int);
+            if (!parameters.TryGetParameter(typeof(Models.Week).ToString(), out weekId))
             {
-                throw new ArgumentException($"{nameof(parameters)}/{nameof(_weekId)}");
+                throw new ArgumentException($"{nameof(parameters)}/{nameof(weekId)}");
             }
 
-            // tab 1
-
-            PendingItems.Clear();
-            var pendingItems = await _dataService.GetShoppingPendingAsync(_weekId);
-            foreach (var item in pendingItems)
+            foreach (var item in await _dataService.GetShoppingPendingAsync(weekId))
             {
-                PendingItems.Add(item);
+                Tab1.Items.Add(item);
             }
-
-            // tab 2
-
-            PurchasedItems.Clear();
-            var purchasedItems = await _dataService.GetShoppingPurchasedAsync(_weekId);
-            foreach (var item in purchasedItems)
+            Tab1.Removed += (s, e) =>
             {
-                PurchasedItems.Add(item);
+                _dataService.MarkIngredientPurchased(weekId, e.Ingredient.Id);
+                Tab2.Items.Add(e.Ingredient);
+            };
+
+            foreach (var item in await _dataService.GetShoppingPurchasedAsync(weekId))
+            {
+                Tab2.Items.Add(item);
             }
+            Tab2.Removed += (s, e) =>
+            {
+                _dataService.MarkIngredientPending(weekId, e.Ingredient.Id);
+                Tab1.Items.Add(e.Ingredient);
+            };
         }
 
         string _title = nameof(ShoppingPageViewModel);
         public string Title { get { return _title; } set { SetProperty(ref _title, value); } }
 
-        // tab 1
-
-        string _tab1Title = "Pending";
-        public string Tab1Title { get { return _tab1Title; } set { SetProperty(ref _tab1Title, value); } }
-
-        public ObservableCollection<Models.Ingredient> PendingItems { get; } = new ObservableCollection<Models.Ingredient>();
-
-        Models.Ingredient _SelectedPendingItem = default(Models.Ingredient);
-        public Models.Ingredient SelectedPendingItem { get { return _SelectedPendingItem; } set { SetProperty(ref _SelectedPendingItem, value); } }
-
-        // tab 2
-
-        string _tab2Title = "Purchased";
-        public string Tab2Title { get { return _tab2Title; } set { SetProperty(ref _tab2Title, value); } }
-
-        public ObservableCollection<Models.Ingredient> PurchasedItems { get; } = new ObservableCollection<Models.Ingredient>();
-
-        Models.Ingredient _SelectedPurchasedItem = default(Models.Ingredient);
-        public Models.Ingredient SelectedPurchasedItem { get { return _SelectedPurchasedItem; } set { SetProperty(ref _SelectedPurchasedItem, value); } }
+        public ITab Tab1 { get; }
+        public ITab Tab2 { get; }
     }
+
+    public interface ITab
+    {
+        string Title { get; set; }
+        ObservableCollection<Models.Ingredient> Items { get; }
+        DelegateCommand<object> SelectedCommand { get; }
+        event EventHandler<RemovedEventArgs> Removed;
+    }
+
+    public class TabLogic : BindableBase, ITab
+    {
+        string _Title = nameof(ITab);
+        public string Title { get { return _Title; } set { SetProperty(ref _Title, value); } }
+
+        public ObservableCollection<Models.Ingredient> Items { get; } = new ObservableCollection<Models.Ingredient>();
+
+        public event EventHandler<RemovedEventArgs> Removed;
+
+        DelegateCommand<object> _SelectedCommand;
+        public DelegateCommand<object> SelectedCommand => _SelectedCommand
+            ?? (_SelectedCommand = new DelegateCommand<object>((item) =>
+            {
+                var ingredient = item as Models.Ingredient;
+                Items.Remove(ingredient);
+                Removed?.Invoke(this, new RemovedEventArgs { Ingredient = ingredient });
+            }));
+    }
+
+    public class RemovedEventArgs : EventArgs
+    {
+        public Models.Ingredient Ingredient { get; set; }
+    }
+
 }

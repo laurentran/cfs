@@ -71,6 +71,7 @@
     <Compile Include="..\..\..\..\ChefsForSeniors.Data.DTO\Models\Unit.cs">
       <Link>Models\DTO\Unit.cs</Link>
     </Compile>
+    <Compile Include="Controls\ListViewEx.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\IngredientCategory.cs" />
     <Compile Include="Models\IngredientUnit.cs" />
@@ -109,11 +110,11 @@
     <Compile Include="Views\IngredientPage.xaml.cs">
       <DependentUpon>IngredientPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ShoppingPendingItemsTab.xaml.cs">
-      <DependentUpon>ShoppingPendingItemsTab.xaml</DependentUpon>
+    <Compile Include="Views\ShoppingPageTab1 %28Pending%29.xaml.cs">
+      <DependentUpon>ShoppingPageTab1 %28Pending%29.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ShoppingPurchasedItemsTab.xaml.cs">
-      <DependentUpon>ShoppingPurchasedItemsTab.xaml</DependentUpon>
+    <Compile Include="Views\ShoppingPageTab2 %28Purchased%29.xaml.cs">
+      <DependentUpon>ShoppingPageTab2 %28Purchased%29.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ListChefsPage.xaml.cs">
       <DependentUpon>ListChefsPage.xaml</DependentUpon>
@@ -267,13 +268,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\ShoppingPendingItemsTab.xaml">
+    <EmbeddedResource Include="Views\ShoppingPageTab1 %28Pending%29.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\ShoppingPurchasedItemsTab.xaml">
+    <EmbeddedResource Include="Views\ShoppingPageTab2 %28Purchased%29.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

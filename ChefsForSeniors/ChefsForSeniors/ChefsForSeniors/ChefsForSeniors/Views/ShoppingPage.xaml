@@ -7,9 +7,11 @@
             Title="{Binding Path=Title}"
             prism:ViewModelLocator.AutowireViewModel="True">
 
-    <local:ShoppingPendingItemsTab />
+    <!--  pending  -->
+    <local:ShoppingPageTab1 BindingContext="{Binding Tab1}" />
 
-    <local:ShoppingPurchasedItemsTab />
+    <!--  purchased  -->
+    <local:ShoppingPageTab2 BindingContext="{Binding Tab2}" />
 
 </TabbedPage>
 

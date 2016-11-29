@@ -20,6 +20,8 @@ namespace ChefsForSeniors.ViewModels
             _pageDialogService = pageDialogService;
             _navigationService = navigationService;
             _dataService = dataService;
+
+            Title = "Meals in week";
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -29,8 +31,6 @@ namespace ChefsForSeniors.ViewModels
 
         public async void OnNavigatedTo(NavigationParameters parameters)
         {
-            Title = "Meals in week";
-
             int weekId = default(int);
             if (!parameters.TryGetParameter(typeof(Models.Week).ToString(), out weekId))
             {
@@ -86,7 +86,7 @@ namespace ChefsForSeniors.ViewModels
         async (uri) =>
         {
             var parameters = new NavigationParameters($"{typeof(Models.Week)}={Week.Id}");
-            await _navigationService.NavigateAsync(uri, parameters);
+            await _navigationService.NavigateAsync(nameof(Views.ShoppingPage), parameters);
         }));
 
         DelegateCommand<string> _newCommand;

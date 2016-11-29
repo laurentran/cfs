@@ -25,6 +25,8 @@ namespace ChefsForSeniors.ViewModels
                     LoginCommand.RaiseCanExecuteChanged();
                 }
             };
+
+            Title = "Please login";
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -34,8 +36,6 @@ namespace ChefsForSeniors.ViewModels
 
         public async void OnNavigatedTo(NavigationParameters parameters)
         {
-            Title = "Please login";
-
             Items = await _dataService.Chef.GetManyAsync();
             SelectedItem = Items.First();
         }
@@ -51,6 +51,16 @@ namespace ChefsForSeniors.ViewModels
 
         string _Password = default(string);
         public string Password { get { return _Password; } set { SetProperty(ref _Password, value); } }
+
+        // for demo: skip password
+        DelegateCommand<object> _selectedCommand;
+        public DelegateCommand<object> SelectedCommand => _selectedCommand ?? (_selectedCommand = new DelegateCommand<object>(
+        async (item) =>
+        {
+            var chef = item as Models.Chef;
+            var parameters = new NavigationParameters($"{chef.GetType()}={chef.Id}");
+            await _navigationService.NavigateAsync(nameof(Views.ListClientsPage), parameters);
+        }));
 
         DelegateCommand<string> _loginCommand;
         public DelegateCommand<string> LoginCommand => _loginCommand ?? (_loginCommand = new DelegateCommand<string>(

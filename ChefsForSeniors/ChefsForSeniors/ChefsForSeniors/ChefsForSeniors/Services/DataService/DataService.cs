@@ -109,12 +109,12 @@ namespace ChefsForSeniors.Services
             throw new NotImplementedException();
         }
 
-        public void MarkIngredientChecked(int weekId, int ingredientId)
+        public void MarkIngredientPurchased(int weekId, int ingredientId)
         {
             throw new NotImplementedException();
         }
 
-        public void MarkIngredientUnChecked(int weekId, int ingredientId)
+        public void MarkIngredientPending(int weekId, int ingredientId)
         {
             throw new NotImplementedException();
         }

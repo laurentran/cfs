@@ -21,6 +21,8 @@ namespace ChefsForSeniors.ViewModels
             _pageDialogService = pageDialogService;
             _navigationService = navigationService;
             _dataService = dataService;
+
+            Title = "Ingredients in recipe";
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -30,8 +32,6 @@ namespace ChefsForSeniors.ViewModels
 
         public async void OnNavigatedTo(NavigationParameters parameters)
         {
-            Title = "Ingredients in recipe";
-
             int recipeId = default(int);
             if (!parameters.TryGetParameter(typeof(Models.Recipe).ToString(), out recipeId))
             {

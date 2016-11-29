@@ -2,6 +2,7 @@
 <ContentPage x:Class="ChefsForSeniors.Views.ListRecipesPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c="clr-namespace:ChefsForSeniors.Controls;assembly=ChefsForSeniors"
              xmlns:fe="clr-namespace:FreshEssentials;assembly=FreshEssentials"
              xmlns:local="clr-namespace:ChefsForSeniors.Views;assembly=ChefsForSeniors"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
@@ -18,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <StackLayout Grid.Row="0">
-            <Label Text="Meal name" />
+            <Label Margin="8,16,0,0" Text="Meal name" />
             <Entry Text="{Binding Meal.Name, Mode=TwoWay}" />
             <Label Text="Meal type" />
             <fe:BindablePicker DisplayProperty="Name"
@@ -30,16 +31,16 @@
             </StackLayout>
         </StackLayout>
 
-        <ListView Grid.Row="1"
-                  fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}"
-                  ItemsSource="{Binding Path=Items}"
-                  SeparatorVisibility="Default">
-            <ListView.ItemTemplate>
+        <c:ListViewEx Grid.Row="1"
+                      fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}"
+                      ItemsSource="{Binding Path=Items}"
+                      SeparatorVisibility="Default">
+            <c:ListViewEx.ItemTemplate>
                 <DataTemplate>
                     <TextCell Detail="{Binding Path=Detail}" Text="{Binding Path=Text}" />
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </c:ListViewEx.ItemTemplate>
+        </c:ListViewEx>
 
         <Button Grid.Row="2"
                 Command="{Binding NavigateToShoppingCommand}"
