@@ -106,7 +106,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="WebActivatorEx">
@@ -150,6 +149,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\GroceryModel.cs" />
+    <Compile Include="Models\IngredientModel.cs" />
+    <Compile Include="Models\MealItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +175,10 @@
     <ProjectReference Include="..\ChefsForSeniors.Data.DTO\ChefsForSeniors.Data.DTO.csproj">
       <Project>{c7923232-9152-426d-a672-f7d86d0ebaf8}</Project>
       <Name>ChefsForSeniors.Data.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChefsForSeniors.Data\ChefsForSeniors.Data.csproj">
+      <Project>{55785e40-6570-48be-ba45-ca8dec0286dd}</Project>
+      <Name>ChefsForSeniors.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

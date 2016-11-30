@@ -14,14 +14,7 @@ namespace ChefsForSeniorsWebAPI.Controllers
         [SwaggerOperation("GetAll")]
         public IEnumerable<Category> Get()
         {
-            var categories = new List<Category>()
-            {
-                new Category() {ID = 1, Name = "Produce" },
-                new Category() {ID = 2, Name = "Butcher" },
-                new Category() {ID = 3, Name = "Dairy" },
-                new Category() {ID = 4, Name = "Dry Goods" }
-            };
-
+            var categories = Models.CategoryModel.GetAllCategories();
             return categories;
         }
     }

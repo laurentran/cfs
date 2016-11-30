@@ -17,5 +17,6 @@ namespace ChefsForSeniors.Data.DTO.Models
         public string Name { get; set; }
 
         public Category Category { get; set; }
+        
     }
 }
