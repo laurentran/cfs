@@ -10,8 +10,8 @@ namespace ChefsForSeniors.Services
 
     public class RealDataService : IDataService
     {
-        IRestService _restService;
-        ISqliteService _sqliteService;
+        private IRestService      _restService;
+        private  ISqliteService    _sqliteService;
 
         public RealDataService(IRestService restService, ISqliteService sqliteService)
         {

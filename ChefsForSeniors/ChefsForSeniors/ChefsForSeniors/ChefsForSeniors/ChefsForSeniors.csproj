@@ -82,6 +82,7 @@
     <Compile Include="Models\RecipeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Services\ConfigurationService\RestConfiguration.cs" />
     <Compile Include="Services\Constants.cs" />
     <Compile Include="Services\DataService\IDataService.cs" />
     <Compile Include="Services\DataService\RealDataService.cs" />
