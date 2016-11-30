@@ -40,9 +40,9 @@
             </c:ListViewEx.ItemTemplate>
         </c:ListViewEx>
 
-        <StackLayout Grid.Row="1" Orientation="Horizontal">
+        <!--<StackLayout Grid.Row="1" Orientation="Horizontal">
             <Button Command="{Binding NewCommand}" Text="+ Ingredient" />
-        </StackLayout>
+        </StackLayout>-->
 
     </Grid>
 
