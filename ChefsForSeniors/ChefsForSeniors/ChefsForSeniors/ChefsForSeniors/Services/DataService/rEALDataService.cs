@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using ChefsForSeniors.Models;
+using ChefsForSeniors.Services.ConfigurationService;
+using Newtonsoft.Json;
 
 namespace ChefsForSeniors.Services
 {
 
     public class RealDataService : IDataService
     {
-        private IRestService      _restService;
-        private  ISqliteService    _sqliteService;
+        private static IRestService     _restService;
+        private  static ISqliteService  _sqliteService;
 
         public RealDataService(IRestService restService, ISqliteService sqliteService)
         {
@@ -22,8 +24,17 @@ namespace ChefsForSeniors.Services
         public IEntityDAL<Chef> Chef { get; } = new ChefLogic();
         public class ChefLogic : IEntityDAL<Chef>
         {
+            private RestConfiguration _restConfig = new RestConfiguration();
+         
             public Task DeleteAsync(int id) { throw new NotImplementedException(); }
-            public async Task<IEnumerable<Chef>> GetManyAsync(int? fk = default(int?)) { throw new NotImplementedException(); }
+            public async Task<IEnumerable<Chef>> GetManyAsync(int? fk = default(int?))
+            {
+                var allUri = _restConfig.CreateGetAll("Chef");
+                var result = await _restService.GetStringAsync(allUri);
+                var chefs = JsonConvert.DeserializeObject<List<Chef>>(result);
+
+                return chefs;
+            }
             public async Task<Chef> GetOneAsync(int id) { throw new NotImplementedException(); }
             public Task<Chef> InsertAsync(Chef item) { throw new NotImplementedException(); }
             public Task<Chef> SaveAsync(Chef item) { throw new NotImplementedException(); }

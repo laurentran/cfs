@@ -150,6 +150,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\ChefModel.cs" />
     <Compile Include="Models\GroceryModel.cs" />
     <Compile Include="Models\IngredientModel.cs" />
     <Compile Include="Models\MealItemModel.cs" />

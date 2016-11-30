@@ -22,7 +22,7 @@ namespace ChefsForSeniors.Test.Data
 
             var testUri = rc.CreateGetAll("Menu");
 
-            Assert.AreEqual(testUri.AbsolutePath, @"http://localhost:30966/api/Menu");
+            Assert.AreEqual(testUri.AbsoluteUri, @"http://localhost:30966/api/Menu");
         }
     }
 }
