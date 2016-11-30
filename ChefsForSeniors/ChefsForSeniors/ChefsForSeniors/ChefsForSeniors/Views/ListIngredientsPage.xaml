@@ -16,8 +16,8 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <c:ListViewEx fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}" ItemSelected="ListView_ItemSelected">
-            <c:ListViewEx.Header>
+        <c:ListViewEx fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}" ItemsSource="{Binding Items}">
+            <!--<c:ListViewEx.Header>
                 <StackLayout>
                     <Label Margin="8,16,0,0" Text="Recipe name" />
                     <Entry Text="{Binding Recipe.Name, Mode=TwoWay}" />
@@ -30,7 +30,7 @@
                         <Button Command="{Binding Path=DeleteCommand}" Text="Delete recipe" />
                     </StackLayout>
                 </StackLayout>
-            </c:ListViewEx.Header>
+            </c:ListViewEx.Header>-->
             <c:ListViewEx.ItemTemplate>
                 <DataTemplate>
                     <ImageCell Detail="{Binding Path=Detail}"

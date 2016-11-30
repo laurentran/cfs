@@ -10,7 +10,7 @@ using ChefsForSeniors.Models;
 
 namespace ChefsForSeniors.ViewModels
 {
-    public class ListIngredientsPageViewModel : BindableBase
+    public class ListIngredientsPageViewModel : BindableBase, INavigationAware
     {
         readonly Prism.Services.IPageDialogService _pageDialogService;
         readonly INavigationService _navigationService;

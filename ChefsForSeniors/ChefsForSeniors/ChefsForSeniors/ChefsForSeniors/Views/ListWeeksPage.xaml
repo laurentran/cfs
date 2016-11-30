@@ -17,8 +17,8 @@
         </Grid.RowDefinitions>
 
         <c:ListViewEx fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}" ItemsSource="{Binding Path=Items}">
-            <x:ListViewEx.Header>
-                <StackLayout>
+            <!--<c:ListViewEx.Header>
+                <StackLayout Padding="16">
                     <Label Margin="8,16,0,0" Text="Client name" />
                     <Entry Text="{Binding Client.Name, Mode=TwoWay}" />
                     <StackLayout Orientation="Horizontal">
@@ -26,7 +26,7 @@
                         <Button Command="{Binding DeleteCommand}" Text="Delete client" />
                     </StackLayout>
                 </StackLayout>
-            </x:ListViewEx.Header>
+            </c:ListViewEx.Header>-->
             <c:ListViewEx.ItemTemplate>
                 <DataTemplate>
                     <ImageCell Detail="{Binding Path=Detail}"
@@ -36,9 +36,9 @@
             </c:ListViewEx.ItemTemplate>
         </c:ListViewEx>
 
-        <StackLayout Grid.Row="1" Orientation="Horizontal">
+        <!--<StackLayout Grid.Row="1" Orientation="Horizontal">
             <Button Command="{Binding NewCommand}" Text="Add a Week" />
-        </StackLayout>
+        </StackLayout>-->
 
     </Grid>
 

@@ -19,8 +19,8 @@
         <c:ListViewEx Grid.Row="0"
                       fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}"
                       ItemsSource="{Binding Path=Items}">
-            <c:ListViewEx.Header>
-                <StackLayout>
+            <!--<c:ListViewEx.Header>
+                <StackLayout IsVisible="False" Padding="16">
                     <Label Margin="8,16,0,0" Text="Chef name" />
                     <Entry Text="{Binding Chef.Name, Mode=TwoWay}" />
                     <StackLayout Orientation="Horizontal">
@@ -28,7 +28,7 @@
                         <Button Command="{Binding DeleteCommand}" Text="Delete chef" />
                     </StackLayout>
                 </StackLayout>
-            </c:ListViewEx.Header>
+            </c:ListViewEx.Header>-->
             <c:ListViewEx.ItemTemplate>
                 <DataTemplate>
                     <ImageCell Detail="{Binding Path=Detail}"
@@ -38,9 +38,9 @@
             </c:ListViewEx.ItemTemplate>
         </c:ListViewEx>
 
-        <StackLayout Grid.Row="1" Orientation="Horizontal">
+        <!--<StackLayout Grid.Row="1" Orientation="Horizontal">
             <Button Command="{Binding NewCommand}" Text="Add a Client" />
-        </StackLayout>
+        </StackLayout>-->
 
     </Grid>
 
