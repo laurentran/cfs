@@ -35,11 +35,11 @@
                 Command="{Binding LoginCommand}"
                 Text="Login" />-->
 
-        <StackLayout Grid.Row="1" Orientation="Horizontal">
+        <!--<StackLayout Grid.Row="1" Orientation="Horizontal">
             <Button Grid.Row="1"
                     Command="{Binding NewCommand}"
                     Text="Add a Chef" />
-        </StackLayout>
+        </StackLayout>-->
 
     </Grid>
 

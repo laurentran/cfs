@@ -8,7 +8,7 @@ using ChefsForSeniors.Utilities;
 
 namespace ChefsForSeniors.ViewModels
 {
-    public class ListRecipesPageViewModel : BindableBase
+    public class ListRecipesPageViewModel : BindableBase, INavigationAware
     {
         readonly Prism.Services.IPageDialogService _pageDialogService;
         readonly INavigationService _navigationService;
