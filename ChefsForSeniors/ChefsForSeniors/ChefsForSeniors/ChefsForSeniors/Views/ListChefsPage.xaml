@@ -16,12 +16,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <c:ListViewEx Grid.Row="0"
-                      fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}"
-                      ItemSelected="ListView_ItemSelected"
-                      ItemsSource="{Binding Path=Items}"
-                      SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
-                      SeparatorVisibility="Default">
+        <c:ListViewEx fe:ListViewItemTappedAttached.Command="{Binding SelectedCommand}" ItemsSource="{Binding Path=Items}">
             <c:ListViewEx.ItemTemplate>
                 <DataTemplate>
                     <ImageCell Detail="{Binding Path=Detail}"

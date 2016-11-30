@@ -8,10 +8,5 @@ namespace ChefsForSeniors.Views
         {
             InitializeComponent();
         }
-
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-
-        }
     }
 }
