@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using ChefsForSeniors.Views;
 using ChefsForSeniors.ViewModels;
 using Microsoft.Practices.Unity;
+using ChefsForSeniors.Services;
 
 namespace ChefsForSeniors
 {
@@ -18,7 +19,9 @@ namespace ChefsForSeniors
 
         protected override void RegisterTypes()
         {
-            Container.RegisterType<Services.IDataService, Services.FakeDataService>();
+            Container.RegisterType<Services.IDataService, Services.RealDataService>();
+            Container.RegisterType<IRestService, Services.RestService.RestService>(new ContainerControlledLifetimeManager());
+
 
             Container.RegisterTypeForNavigation<NavigationPage>();
             Container.RegisterTypeForNavigation<ListChefsPage, ListChefsPageViewModel>();

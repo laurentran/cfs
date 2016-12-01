@@ -28,7 +28,6 @@ namespace ChefsForSeniors.Droid
         {
             container.RegisterType<ISqliteService, Services.SqliteService>(new ContainerControlledLifetimeManager());
             container.RegisterType<IHockeyAppService, Services.HockeyAppService>(new ContainerControlledLifetimeManager());
-            container.RegisterType<IRestService, Services.RestService>(new ContainerControlledLifetimeManager());
         }
     }
 }

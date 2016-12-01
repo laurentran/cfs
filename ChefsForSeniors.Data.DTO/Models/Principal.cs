@@ -12,5 +12,7 @@ namespace ChefsForSeniors.Data.DTO.Models
 
         public virtual string Name { get; set; }
 
+        public virtual string Location { get; set; }
+
     }
 }

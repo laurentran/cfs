@@ -196,7 +196,6 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\HockeyAppService.cs" />
-    <Compile Include="Services\RestService.cs" />
     <Compile Include="Services\SqlLiteService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -82,6 +82,7 @@
     <Compile Include="Models\RecipeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Services\ConfigurationService\RestConfiguration.cs" />
     <Compile Include="Services\Constants.cs" />
     <Compile Include="Services\DataService\IDataService.cs" />
     <Compile Include="Services\DataService\RealDataService.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Services\IHockeyAppService.cs" />
     <Compile Include="Services\ISqliteService.cs" />
     <Compile Include="Services\IRestService.cs" />
+    <Compile Include="Services\RestService\RestService.cs" />
     <Compile Include="Utilities\Extensions.cs" />
     <Compile Include="ViewModels\ListClientsPageViewModel.cs" />
     <Compile Include="ViewModels\IngredientPageViewModel.cs" />
