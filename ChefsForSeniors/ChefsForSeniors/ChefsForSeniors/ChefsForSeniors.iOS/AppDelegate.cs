@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using HockeyApp.iOS;
 using UIKit;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
@@ -24,6 +25,11 @@ namespace ChefsForSeniors.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            var manager = BITHockeyManager.SharedHockeyManager;
+            manager.Configure("dc64337790b84c49a6dbc9188586abdb");
+            manager.StartManager();
+            manager.Authenticator.AuthenticateInstallation();
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App(new iOSInitializer()));
 

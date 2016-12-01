@@ -1,14 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using ChefsForSeniors.Services;
-using HockeyApp.Android.Metrics;
+using HockeyApp;
 
-namespace ChefsForSeniors.Droid.Services
+namespace ChefsForSeniors.iOS.Services
 {
-    public class HockeyAppService : IHockeyAppService
+    class HockeyAppService : IHockeyAppService
     {
         public void TrackEvent(string eventName)
         {
