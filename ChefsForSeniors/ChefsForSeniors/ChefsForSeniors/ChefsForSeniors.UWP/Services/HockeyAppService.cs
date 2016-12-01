@@ -9,15 +9,9 @@ namespace ChefsForSeniors.UWP.Services
 {
     public class HockeyAppService : IHockeyAppService
     {
-        static HockeyAppService()
-        {
-            var app_id = Constants.HockeyApp_AppId;
-            // TODO: setup hockeyapp
-        }
-
         public void TrackEvent(string eventName)
         {
-            throw new NotImplementedException();
+            Microsoft.HockeyApp.HockeyClient.Current.TrackEvent(eventName);
         }
     }
 }
