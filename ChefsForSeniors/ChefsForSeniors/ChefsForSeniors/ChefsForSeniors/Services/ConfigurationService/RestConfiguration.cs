@@ -11,8 +11,8 @@ namespace ChefsForSeniors.Services.ConfigurationService
     public class RestConfiguration
     {
         private const string _baseScheme = "http";
-        private const string _baseHost = "localhost";
-        private const int _basePort = 30669;
+        private const string _baseHost = "chefsforseniorstest.azurewebsites.net";
+        private const int _basePort = 80;
         private const string _basePath = "api";
         private static UriBuilder _builder = null;
 

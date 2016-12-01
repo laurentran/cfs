@@ -90,6 +90,7 @@
     <Compile Include="Services\IHockeyAppService.cs" />
     <Compile Include="Services\ISqliteService.cs" />
     <Compile Include="Services\IRestService.cs" />
+    <Compile Include="Services\RestService\RestService.cs" />
     <Compile Include="Utilities\Extensions.cs" />
     <Compile Include="ViewModels\ListClientsPageViewModel.cs" />
     <Compile Include="ViewModels\IngredientPageViewModel.cs" />

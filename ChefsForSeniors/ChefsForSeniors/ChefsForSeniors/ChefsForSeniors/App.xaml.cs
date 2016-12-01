@@ -20,7 +20,7 @@ namespace ChefsForSeniors
         protected override void RegisterTypes()
         {
             Container.RegisterType<Services.IDataService, Services.RealDataService>();
-            //Container.RegisterType<IRestService, Services>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IRestService, Services.RestService.RestService>(new ContainerControlledLifetimeManager());
 
 
             Container.RegisterTypeForNavigation<NavigationPage>();
