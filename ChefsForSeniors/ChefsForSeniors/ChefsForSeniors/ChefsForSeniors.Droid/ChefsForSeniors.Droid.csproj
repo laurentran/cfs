@@ -221,14 +221,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
-    <AndroidResource Include="Resources\drawable\Images\CheckboxOff.png" />
-    <AndroidResource Include="Resources\drawable\Images\CheckboxOn.png" />
-    <AndroidResource Include="Resources\drawable\Images\Chef.png" />
-    <AndroidResource Include="Resources\drawable\Images\Client.png" />
-    <AndroidResource Include="Resources\drawable\Images\Ingredient.png" />
-    <AndroidResource Include="Resources\drawable\Images\Meal.png" />
-    <AndroidResource Include="Resources\drawable\Images\Recipe.png" />
-    <AndroidResource Include="Resources\drawable\Images\Week.png" />
+    <AndroidResource Include="Resources\drawable\CheckboxOff.png" />
+    <AndroidResource Include="Resources\drawable\CheckboxOn.png" />
+    <AndroidResource Include="Resources\drawable\Chef.png" />
+    <AndroidResource Include="Resources\drawable\Client.png" />
+    <AndroidResource Include="Resources\drawable\Ingredient.png" />
+    <AndroidResource Include="Resources\drawable\Meal.png" />
+    <AndroidResource Include="Resources\drawable\Recipe.png" />
+    <AndroidResource Include="Resources\drawable\Week.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChefsForSeniors\ChefsForSeniors.csproj">

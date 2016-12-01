@@ -26,7 +26,7 @@ namespace ChefsForSeniors.Models
         public string Detail => this.GetType().ToString();
         public Xamarin.Forms.ImageSource ImageSource => Xamarin.Forms.Device.OnPlatform(
             iOS: Xamarin.Forms.ImageSource.FromFile("Images/Chef.png"),
-            Android: Xamarin.Forms.ImageSource.FromFile("Images/Chef.png"),
+            Android: Xamarin.Forms.ImageSource.FromFile("Chef.png"),
             WinPhone: Xamarin.Forms.ImageSource.FromFile("Images/Chef.png"));
     }
 }
