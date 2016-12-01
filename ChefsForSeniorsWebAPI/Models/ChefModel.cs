@@ -17,5 +17,13 @@ namespace ChefsForSeniorsWebAPI.Models
             var chefs = new JavaScriptSerializer().Deserialize<List<Chef>>(dtChef);
             return chefs;
         }
+
+        public static IEnumerable<Chef> GetChef( int id )
+        {
+            var dt = DataAccess.ExecuteStoredProcedure("spGetChefByID", id);
+            var dtChef = DataAccess.TableToJson(dt);
+            var chef = new JavaScriptSerializer().Deserialize<List<Chef>>(dtChef);
+            return chef;
+        }
     }
 }

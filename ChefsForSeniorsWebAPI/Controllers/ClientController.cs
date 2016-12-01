@@ -9,23 +9,16 @@ using System.Web.Http;
 
 namespace ChefsForSeniorsWebAPI.Controllers
 {
-    public class ChefController : ApiController
+    public class ClientController : ApiController
     {
-        [SwaggerOperation("GetAll")]
-        public IEnumerable<Chef> Get()
-        {
-            var chef = Models.ChefModel.GetAllChefs();
-            return chef;
-        }
-
         // GET api/values/5
-        [SwaggerOperation("GetById")]
+        [SwaggerOperation("GetClientsByChefId")]
         [SwaggerResponse(HttpStatusCode.OK)]
         [SwaggerResponse(HttpStatusCode.NotFound)]
-        public IEnumerable<Chef> Get(int id)
+        public IEnumerable<Client> GetClientsByChefID(int id)
         {
-            var chef = Models.ChefModel.GetChef(id);
-            return chef;
+            var clients = Models.ClientModel.GetClientByChefID(id);
+            return clients;
         }
     }
 }

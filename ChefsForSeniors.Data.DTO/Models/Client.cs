@@ -8,6 +8,7 @@ namespace ChefsForSeniors.Data.DTO.Models
 {
     public class Client : Principal
     {
+        public Client() { }
         public Client(int id, string name) { ID = id; Name = name; }
     }
 }
