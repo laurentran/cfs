@@ -31,6 +31,24 @@ namespace ChefsForSeniors.Data
             }
             return dt;
         }
+        public static DataTable ExecuteStoredProcedure(string name, int id)
+        {
+            var dt = new DataTable();
+            using (var conn = new SqlConnection(GetConnectionString()))
+            {
+                using (var cmd = new SqlCommand(name, conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    using (var da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+            }
+            return dt;
+        }
+
 
         public static string TableToJson(DataTable dt)
         {

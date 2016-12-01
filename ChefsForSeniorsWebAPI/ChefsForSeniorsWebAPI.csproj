@@ -140,6 +140,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ChefController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\GroceryController.cs" />
     <Compile Include="Controllers\IngredientController.cs" />
     <Compile Include="Controllers\MealItemController.cs" />
@@ -151,6 +152,7 @@
     </Compile>
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\ChefModel.cs" />
+    <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Models\GroceryModel.cs" />
     <Compile Include="Models\IngredientModel.cs" />
     <Compile Include="Models\MealItemModel.cs" />
