@@ -3,11 +3,11 @@ var router = express.Router();
 var Connection = require('tedious').Connection;  
 
 var config = {  
-    userName: 'masterchef',  
-    password: 'Chef1234',  
-    server: 'chefsforseniors.database.windows.net',  
+    userName: process.env.DB_USERNAME,  
+    password: process.env.DB_PASSWORD,  
+    server: process.env.DB_SERVER,  
     // If you are on Microsoft Azure, you need this:  
-    options: {encrypt: true, database: 'cfs'}  
+    options: {encrypt: true, database: process.env.DB_NAME}  
 };  
 var connection = new Connection(config);  
 connection.on('connect', function(err) {  
