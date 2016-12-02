@@ -62,7 +62,12 @@ namespace ChefsForSeniors.Services
             }
             public async Task<Client> GetOneAsync(int id)
             {
-                throw new NotImplementedException();
+                //TODO: Make sure this creates the correct URL
+                var allUri = _restConfig.CreateCustomWithParameter("Client", "GetClientByID", "ID", id.ToString());
+                var result = await _restService.GetStringAsync(allUri);
+                var client = JsonConvert.DeserializeObject<Client>(result);
+
+                return client;
             }
             public Task<Client> InsertAsync(Client item) { throw new NotImplementedException(); }
             public Task<Client> SaveAsync(Client item) { throw new NotImplementedException(); }
@@ -72,8 +77,26 @@ namespace ChefsForSeniors.Services
         public class WeekLogic : IEntityDAL<Week>
         {
             public Task DeleteAsync(int id) { throw new NotImplementedException(); }
-            public async Task<IEnumerable<Week>> GetManyAsync(int? fk = default(int?)) { throw new NotImplementedException(); }
-            public async Task<Week> GetOneAsync(int id) { throw new NotImplementedException(); }
+
+            public async Task<IEnumerable<Week>> GetManyAsync(int? fk = default(int?))
+            {
+                //TODO: Make sure this creates the correct URL & week logic needed
+                var allUri = _restConfig.CreateCustomWithParameter("Client", "GetWeeksByClientID", "ID", fk?.ToString());
+                var result = await _restService.GetStringAsync(allUri);
+                var weeks = JsonConvert.DeserializeObject<List<Week>>(result);
+
+                return weeks;
+            }
+
+            public async Task<Week> GetOneAsync(int id)
+            {
+                //TODO: Make sure this creates the correct URL & week logic needed
+                var allUri = _restConfig.CreateCustomWithParameter("Client", "GetWeekByWeekID", "ID", id.ToString());
+                var result = await _restService.GetStringAsync(allUri);
+                var week = JsonConvert.DeserializeObject<Week>(result);
+
+                return week;
+            }
             public Task<Week> InsertAsync(Week item) { throw new NotImplementedException(); }
             public Task<Week> SaveAsync(Week item) { throw new NotImplementedException(); }
         }
@@ -82,8 +105,26 @@ namespace ChefsForSeniors.Services
         public class MealLogic : IEntityDAL<Meal>
         {
             public Task DeleteAsync(int id) { throw new NotImplementedException(); }
-            public async Task<IEnumerable<Meal>> GetManyAsync(int? fk = default(int?)) { throw new NotImplementedException(); }
-            public async Task<Meal> GetOneAsync(int id) { throw new NotImplementedException(); }
+
+            public async Task<IEnumerable<Meal>> GetManyAsync(int? fk = default(int?))
+            {
+                //TODO: Make sure this creates the correct URL
+                var allUri = _restConfig.CreateCustomWithParameter("Client", "GetMealsByWeekID", "ID", fk?.ToString());
+                var result = await _restService.GetStringAsync(allUri);
+                var meals = JsonConvert.DeserializeObject<List<Meal>>(result);
+
+                return meals;
+            }
+
+            public async Task<Meal> GetOneAsync(int id)
+            {
+                //TODO: Make sure this creates the correct URL
+                var allUri = _restConfig.CreateCustomWithParameter("Client", "GetMealByWeekID", "ID", id.ToString());
+                var result = await _restService.GetStringAsync(allUri);
+                var meal = JsonConvert.DeserializeObject<Meal>(result);
+
+                return meal;
+            }
             public Task<Meal> InsertAsync(Meal item) { throw new NotImplementedException(); }
             public Task<Meal> SaveAsync(Meal item) { throw new NotImplementedException(); }
         }
@@ -92,8 +133,26 @@ namespace ChefsForSeniors.Services
         public class RecipeLogic : IEntityDAL<Recipe>
         {
             public Task DeleteAsync(int id) { throw new NotImplementedException(); }
-            public async Task<IEnumerable<Recipe>> GetManyAsync(int? fk = default(int?)) { throw new NotImplementedException(); }
-            public async Task<Recipe> GetOneAsync(int id) { throw new NotImplementedException(); }
+
+            public async Task<IEnumerable<Recipe>> GetManyAsync(int? fk = default(int?))
+            {
+                //TODO: Make sure this creates the correct URL
+                var allUri = _restConfig.CreateCustomWithParameter("Client", "GetRecipesByMealID", "ID", fk?.ToString());
+                var result = await _restService.GetStringAsync(allUri);
+                var recipes = JsonConvert.DeserializeObject<List<Recipe>>(result);
+
+                return recipes;
+            }
+
+            public async Task<Recipe> GetOneAsync(int id)
+            {
+                //TODO: Make sure this creates the correct URL
+                var allUri = _restConfig.CreateCustomWithParameter("Client", "GetRecipeByMealID", "ID", id.ToString());
+                var result = await _restService.GetStringAsync(allUri);
+                var recipe = JsonConvert.DeserializeObject<Recipe>(result);
+
+                return recipe;
+            }
             public Task<Recipe> InsertAsync(Recipe item) { throw new NotImplementedException(); }
             public Task<Recipe> SaveAsync(Recipe item) { throw new NotImplementedException(); }
         }
@@ -102,8 +161,26 @@ namespace ChefsForSeniors.Services
         public class IngredientLogic : IEntityDAL<Ingredient>
         {
             public Task DeleteAsync(int id) { throw new NotImplementedException(); }
-            public async Task<IEnumerable<Ingredient>> GetManyAsync(int? fk = default(int?)) { throw new NotImplementedException(); }
-            public async Task<Ingredient> GetOneAsync(int id) { throw new NotImplementedException(); }
+
+            public async Task<IEnumerable<Ingredient>> GetManyAsync(int? fk = default(int?))
+            {
+                //TODO: Make sure this creates the correct URL
+                var allUri = _restConfig.CreateCustomWithParameter("Client", "GetIngredientsByRecipeID", "ID", fk?.ToString());
+                var result = await _restService.GetStringAsync(allUri);
+                var ingredients = JsonConvert.DeserializeObject<List<Ingredient>>(result);
+
+                return ingredients;
+            }
+
+            public async Task<Ingredient> GetOneAsync(int id)
+            {
+                //TODO: Make sure this creates the correct URL
+                var allUri = _restConfig.CreateCustomWithParameter("Client", "GetIngredientByRecipeID", "ID", id.ToString());
+                var result = await _restService.GetStringAsync(allUri);
+                var ingredient = JsonConvert.DeserializeObject<Ingredient>(result);
+
+                return ingredient;
+            }
             public Task<Ingredient> InsertAsync(Ingredient item) { throw new NotImplementedException(); }
             public Task<Ingredient> SaveAsync(Ingredient item) { throw new NotImplementedException(); }
         }
