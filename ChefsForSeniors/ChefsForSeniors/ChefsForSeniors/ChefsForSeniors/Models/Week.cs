@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -12,6 +13,10 @@ namespace ChefsForSeniors.Models
 
         public string Text => $"Week of {Date.ToString("MMM d")}";
         public string Detail => this.GetType().ToString();
+
+        public string WeekNumber
+            =>
+            CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(this.Date, CalendarWeekRule.FirstDay, DayOfWeek.Sunday).ToString();
         public Xamarin.Forms.ImageSource ImageSource => Xamarin.Forms.Device.OnPlatform(
          iOS: Xamarin.Forms.ImageSource.FromFile("Images/Week.png"),
          Android: Xamarin.Forms.ImageSource.FromFile("Images/Week.png"),

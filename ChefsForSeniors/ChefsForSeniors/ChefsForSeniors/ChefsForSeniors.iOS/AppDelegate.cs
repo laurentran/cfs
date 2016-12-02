@@ -26,7 +26,7 @@ namespace ChefsForSeniors.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             var manager = BITHockeyManager.SharedHockeyManager;
-            manager.Configure("dc64337790b84c49a6dbc9188586abdb");
+            manager.Configure(ChefsForSeniors.Services.Constants.IOS_HockeyAppId);
             manager.StartManager();
             manager.Authenticator.AuthenticateInstallation();
 
