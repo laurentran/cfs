@@ -26,5 +26,23 @@ namespace ChefsForSeniors.Services.ConfigurationService
         }
         
         public Uri CreateGetAll(string controllerName) => _builder.Uri.Append(controllerName);
+
+        public Uri CreateOne( string controllerName, int id )
+        {
+            var retVal = _builder.Uri.Append(controllerName).Append(id.ToString());
+
+            return retVal;
+        }
+
+        public Uri CreateCustomWithParameter(string controllerName, string methodName, string argumentName, string argumentVal)
+        {
+            var b1 = _builder;
+            var uri = b1.Uri.Append(controllerName).Append(methodName);
+
+            var b2 = new UriBuilder(uri);
+            b2.Query = String.Format("{0}={1}", argumentName, argumentVal);
+
+            return b2.Uri;
+        }
     }
 }

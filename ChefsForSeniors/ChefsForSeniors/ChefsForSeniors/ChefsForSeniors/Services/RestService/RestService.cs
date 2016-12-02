@@ -24,8 +24,15 @@ namespace ChefsForSeniors.Services.RestService
 
             string result = string.Empty;
 
-            HttpResponseMessage response = await _client.GetAsync(uri);
-
+            HttpResponseMessage response = null;
+            try
+            {
+                response = await _client.GetAsync(uri);
+            }
+            catch ( Exception ex )
+            {
+                throw;
+            }
             if (response.IsSuccessStatusCode)
             {
                 result = await response.Content.ReadAsStringAsync();

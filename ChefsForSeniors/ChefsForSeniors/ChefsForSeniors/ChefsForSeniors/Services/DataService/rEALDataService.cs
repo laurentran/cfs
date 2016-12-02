@@ -12,8 +12,10 @@ namespace ChefsForSeniors.Services
 
     public class RealDataService : IDataService
     {
-        private static IRestService     _restService;
+        private  static IRestService     _restService;
         private  static ISqliteService  _sqliteService;
+
+        private static  RestConfiguration _restConfig = new RestConfiguration();
 
         public RealDataService(IRestService restService, ISqliteService sqliteService)
         {
@@ -24,7 +26,6 @@ namespace ChefsForSeniors.Services
         public IEntityDAL<Chef> Chef { get; } = new ChefLogic();
         public class ChefLogic : IEntityDAL<Chef>
         {
-            private RestConfiguration _restConfig = new RestConfiguration();
          
             public Task DeleteAsync(int id) { throw new NotImplementedException(); }
             public async Task<IEnumerable<Chef>> GetManyAsync(int? fk = default(int?))
@@ -35,7 +36,14 @@ namespace ChefsForSeniors.Services
 
                 return chefs;
             }
-            public async Task<Chef> GetOneAsync(int id) { throw new NotImplementedException(); }
+            public async Task<Chef> GetOneAsync(int id)
+            {
+                var getOneUri = _restConfig.CreateOne("Chef", id);
+                var result = await _restService.GetStringAsync(getOneUri);
+                var chef = JsonConvert.DeserializeObject<List<Chef>>(result);
+
+                return chef.First<Chef>();
+            }
             public Task<Chef> InsertAsync(Chef item) { throw new NotImplementedException(); }
             public Task<Chef> SaveAsync(Chef item) { throw new NotImplementedException(); }
         }
@@ -44,8 +52,18 @@ namespace ChefsForSeniors.Services
         public class ClientLogic : IEntityDAL<Client>
         {
             public Task DeleteAsync(int id) { throw new NotImplementedException(); }
-            public async Task<IEnumerable<Client>> GetManyAsync(int? fk = default(int?)) { throw new NotImplementedException(); }
-            public async Task<Client> GetOneAsync(int id) { throw new NotImplementedException(); }
+            public async Task<IEnumerable<Client>> GetManyAsync(int? fk = default(int?))
+            {
+                var allUri = _restConfig.CreateCustomWithParameter("Client", "GetClientByChefID", "ID", fk?.ToString());
+                var result = await _restService.GetStringAsync(allUri);
+                var clients = JsonConvert.DeserializeObject<List<Client>>(result);
+
+                return clients;
+            }
+            public async Task<Client> GetOneAsync(int id)
+            {
+                throw new NotImplementedException();
+            }
             public Task<Client> InsertAsync(Client item) { throw new NotImplementedException(); }
             public Task<Client> SaveAsync(Client item) { throw new NotImplementedException(); }
         }
