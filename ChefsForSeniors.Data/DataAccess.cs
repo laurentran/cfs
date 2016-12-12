@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace ChefsForSeniors.Data
     {
         private static string GetConnectionString()
         {
-            return "Server=tcp:chefsforseniors.database.windows.net,1433;Initial Catalog=CFS;Persist Security Info=False;User ID=masterchef;Password=Chef1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            var retVal = ConfigurationManager.AppSettings["SQLConnectionString"];
+            return retVal;
         }
 
         public static DataTable ExecuteStoredProcedure(string name)
